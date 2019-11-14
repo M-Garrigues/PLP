@@ -11,3 +11,4 @@ services:
     volumes:
       - ./web:/app
       - '/app/node_modules'
+      
