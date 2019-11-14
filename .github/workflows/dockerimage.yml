@@ -10,7 +10,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    -
     - name: Build the web Docker image
       run: docker build web --file Dockerfile --tag plp_web:$(date +%s)
 
