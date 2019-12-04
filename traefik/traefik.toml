@@ -1,0 +1,27 @@
+defaultEntryPoints = ["http", "https"]
+
+[web]
+address = ":7777"
+  [web.auth.basic]
+  users = ["admin:$apr1$Qai983Ya$XNOr.GZjn3Uggtu3iHqbY/"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+      entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+
+[acme]
+email = "bin@mgarrigues.fr"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+onDemand = true
+
+[docker]
+domain = "localhost"
+watch = true
+network = "web"

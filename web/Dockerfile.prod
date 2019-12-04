@@ -1,4 +1,3 @@
-ARG GLOBAL_ENV
 ARG TAG_NODE
 
 # base image
@@ -7,15 +6,8 @@ FROM node:$TAG_NODE
 # set working directory
 WORKDIR /app
 
-RUN echo $GLOBAL_ENV
-RUN echo $TAG_NODE
-
 # install simple http server for serving static content
-RUN if [ "$GLOBAL_ENV" = '1' ];\
-	then echo "OUI";\
-	else echo "NON";\
-	#then npm install -g http-server;  \
-	fi
+RUN npm install -g http-server
 
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
@@ -26,13 +18,7 @@ COPY package.json /app/package.json
 
 RUN npm install
 RUN npm install @vue/cli@3.7.0 -g
-RUN if [ "$GLOBAL_ENV" = "production" ]; \
-	then npm run build;  \
-	fi
+RUN npm run build
 
 # start app
-
-#CMD if [ "$GLOBAL_ENV" = "development" ]; \
-#	then ["npm", "run", "serve"];  \
-#	else ["npm", "run", "build"]; \
-#	fi
+CMD ["http-serv", "dist"]

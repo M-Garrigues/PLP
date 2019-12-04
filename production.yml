@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+
+  web:
+    container_name: plp_web_prod
+    build:
+      dockerfile: Dockerfile.prod
