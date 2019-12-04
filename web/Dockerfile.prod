@@ -1,24 +1,27 @@
 ARG TAG_NODE
+ARG TAG_VUECLI
 
-# base image
 FROM node:$TAG_NODE
-
-# set working directory
-WORKDIR /app
 
 # install simple http server for serving static content
 RUN npm install -g http-server
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# make the 'app' folder the current working directory
+WORKDIR /app
 
-# install and cache app dependencies
-COPY package.json /app/package.json
+# copy both 'package.json' and 'package-lock.json' (if available)
+COPY package*.json ./
 
+# install project dependencies
+RUN npm install #--only=production
 
-RUN npm install
-RUN npm install @vue/cli@3.7.0 -g
+# copy project files and folders to the current working directory (i.e. 'app' folder)
+COPY . .
+
+# build app for production with minification
+RUN npm install @vue/cli@$TAG_VUECLI -g
+
 RUN npm run build
 
-# start app
-CMD ["http-serv", "dist"]
+EXPOSE 8080
+CMD [ "http-server", "dist" ]

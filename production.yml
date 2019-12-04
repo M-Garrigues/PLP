@@ -6,3 +6,4 @@ services:
     container_name: plp_web_prod
     build:
       dockerfile: Dockerfile.prod
+    image: im_plp_web_prod

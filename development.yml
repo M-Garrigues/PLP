@@ -6,3 +6,7 @@ services:
     container_name: plp_web_dev
     build:
       dockerfile: Dockerfile.dev
+    image: im_plp_web_dev
+    volumes:
+      - ./web:/app
+      - '/app/node_modules'

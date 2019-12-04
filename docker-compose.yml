@@ -16,9 +16,7 @@ services:
       context: ./web
       args:
         TAG_NODE: "${TAG_NODE}"
-    volumes:
-      - ./web:/app
-      - '/app/node_modules'
+        TAG_VUECLI: "${TAG_VUECLI}"
     ports: 
       - "8080:8080"
     labels:
