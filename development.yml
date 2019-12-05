@@ -4,7 +4,16 @@ services:
 
   plp_reverse_proxy:
     container_name: plp_traefik_prod
+    command:
+      - --api
+      - --providers.docker
+      - --entrypoints.http.address=:80
+      - --entrypoints.https.address=:443
     labels:
+
+      - traefik.http.routers.traefik.rule=Host(`traefik.localhost`)
+      - traefik.http.routers.traefik.entrypoints=https,http
+
 
   plp_web:
     container_name: plp_web_dev
@@ -14,3 +23,8 @@ services:
     volumes:
       - ./web:/app
       - '/app/node_modules'
+
+    labels:
+
+     - traefik.http.routers.plp_web.rule=Host(`plp.localhost`)
+     - traefik.http.routers.plp_web.entrypoints=https, http

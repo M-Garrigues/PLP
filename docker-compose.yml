@@ -13,32 +13,14 @@ services:
     container_name: plp_traefik
 
     image: traefik:${TAG_TRAEFIK}
-    restart: always
-    command: 
-      - --api
-      - --providers.docker
-      - --entrypoints.http.address=:80
-      - --entrypoints.https.address=:443
-      - --certificatesresolvers.leresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
-      - --certificatesresolvers.leresolver.acme.email=bin@mgarrigues.fr
-      - --certificatesresolvers.leresolver.acme.storage=/acme.json
-      - --certificatesresolvers.leresolver.acme.tlschallenge=true
+    restart: always      
 
     labels:
-      # global redirect to https
-      - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"
-      - "traefik.http.routers.redirs.entrypoints=http"
-      - "traefik.http.routers.redirs.middlewares=redirect-to-https"
-
+      
       # Dashboard
-      - traefik.http.routers.traefik.rule=Host(`google.com`)
       - traefik.http.routers.traefik.service=api@internal
       - traefik.http.routers.traefik.middlewares=admin
-      - traefik.http.routers.traefik.tls.certresolver=leresolver
-      - traefik.http.routers.traefik.entrypoints=https
 
-       # middleware redirect
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       ### Next line's '$' are doubled as to escape them
       - traefik.http.middlewares.admin.basicauth.users=admin:$$apr1$$Qai983Ya$$XNOr.GZjn3Uggtu3iHqbY/
 
@@ -63,10 +45,8 @@ services:
         TAG_VUECLI: "${TAG_VUECLI}"
     labels:
       - traefik.enable=true
-      - traefik.http.routers.plp_web.rule=Host(`mgarrigues.fr`)
       - traefik.http.services.plp_web.loadbalancer.server.port=8080
-      - traefik.http.routers.plp_web.tls.certresolver=leresolver
-      - traefik.http.routers.plp_web.entrypoints=https
+      
     networks:
       - proxy
     depends_on:
