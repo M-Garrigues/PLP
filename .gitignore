@@ -54,8 +54,6 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
 
 # next.js build output
 .next
@@ -160,7 +158,6 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
-.env
 .venv
 env/
 venv/
@@ -216,7 +213,6 @@ __pycache__
 .#*
 .coverage
 .pytest_cache
-src
 
 *.swp
 *.map
