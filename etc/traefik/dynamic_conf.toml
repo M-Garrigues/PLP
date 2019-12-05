@@ -1,0 +1,20 @@
+# http routing section
+[http]
+  [http.routers]
+     # Define a connection between requests and services
+     [http.routers.to-plp]
+      rule = "Host(`plp.localhost`))"
+      # If the rule matches, applies the middleware
+      middlewares = ["plp-web"]
+      # If the rule matches, forward to the whoami service (declared below)
+      service = "plp_web"
+
+  [http.middlewares]
+    # Define an authentication mechanism
+    [web.auth.basic]
+      users = ["admin:$apr1$Qai983Ya$XNOr.GZjn3Uggtu3iHqbY/"]
+
+  [http.services]
+    [http.services.plp_web.loadBalancer]
+      [[http.services.plp_web.loadBalancer.servers]]
+        url = "http://private-ip-server-1/"
