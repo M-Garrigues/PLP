@@ -2,6 +2,12 @@ version: '3.2'
 
 services:
 
+  plp_reverse_proxy:
+    container_name: plp_traefik_prod
+    labels:
+
+      
+
   plp_web:
     container_name: plp_web_prod
     build:
