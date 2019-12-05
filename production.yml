@@ -21,7 +21,7 @@ services:
       - "traefik.http.routers.redirs.middlewares=redirect-to-https"
 
 
-      - traefik.http.routers.traefik.rule=Host(`traefik.localhost`)
+      - traefik.http.routers.traefik.rule=Host(`${PROD_TRAEFIK_PATH}`)
       - traefik.http.routers.traefik.tls.certresolver=leresolver
       - traefik.http.routers.traefik.entrypoints=https
 
@@ -38,6 +38,6 @@ services:
     image: im_plp_web_prod
     labels:
 
-      - traefik.http.routers.plp_web.rule=Host(`plp.localhost`)
+      - traefik.http.routers.plp_web.rule=Host(`${PROD_PLP_PATH}`)
       - traefik.http.routers.plp_web.tls.certresolver=leresolver
       - traefik.http.routers.plp_web.entrypoints=https

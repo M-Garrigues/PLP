@@ -11,7 +11,7 @@ services:
       - --entrypoints.https.address=:443
     labels:
 
-      - traefik.http.routers.traefik.rule=Host(`traefik.localhost`)
+      - traefik.http.routers.traefik.rule=Host(`${DEV_TRAEFIK_PATH}`)
       - traefik.http.routers.traefik.entrypoints=https,http
 
 
@@ -26,5 +26,5 @@ services:
 
     labels:
 
-     - traefik.http.routers.plp_web.rule=Host(`plp.localhost`)
+     - traefik.http.routers.plp_web.rule=Host(`${DEV_PLP_PATH}`)
      - traefik.http.routers.plp_web.entrypoints=https, http
