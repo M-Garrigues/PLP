@@ -21,5 +21,6 @@ sleep 4
 docker ps
 echo""
 echo""
-docker logs plp_traefik
+echo "Traefik log :"
+docker logs plp_traefik_prod
 echo""

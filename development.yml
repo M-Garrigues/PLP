@@ -3,7 +3,7 @@ version: '3.2'
 services:
 
   plp_reverse_proxy:
-    container_name: plp_traefik_prod
+    container_name: plp_traefik_dev
     command:
       - --api
       - --providers.docker

@@ -366,8 +366,8 @@ ul.contact li a.icon-rss:before
 	#header-wrapper
 	{
 		overflow: hidden;
-		padding: 5em 0em 0em 0em;
-		background: #FFC000 url(images/overlay.png) repeat;
+		padding: 00em 0em 0em 0em;
+		background: #FFC000 /*url(images/overlay.png)*/ repeat;
 	}
 
 	#header
@@ -726,7 +726,7 @@ ul.contact li a.icon-rss:before
 	#header-featured
 	{
 		height: 30em;
-		background-image: url(images/banner.jpg);
+		/*background-image: url(images/banner.jpg);*/
 		background-position: center;
 		background-size: cover;
 	}
