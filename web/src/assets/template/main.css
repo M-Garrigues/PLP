@@ -538,7 +538,9 @@ ul.contact li a.icon-rss:before
 
 #wrapper
 {
-	background: #FFF;
+	background: #f2f3f5;
+	padding: 5em 0;
+	padding-bottom: 1000px;
 }
 
 #page
@@ -567,10 +569,43 @@ ul.contact li a.icon-rss:before
 /* Sidebar                                                                       */
 /*********************************************************************************/
 
+	#match-list
+	{
+		background-color:var(--main_color);
+		float: right;
+		width: 65%;
+		margin-right: 3%;
+		box-shadow: none !important;
+		border: 1px solid rgba(0,0,0,0.12);
+		position: relative;
+		border-radius: 8px;
+		box-sizing: inherit;
+		direction: ltr;
+		line-height: 1.5;
+		font-size: 14px;
+
+		height: auto;
+		text-align: center;
+		padding: 10px;
+	}
 	#sidebar
 {
-	float: right;
-	width: 450px;
+		background-color:var(--main_color);
+		float: left;
+		width: 25%;
+		margin-left: 3%;
+		box-shadow: none !important;
+		border: 1px solid rgba(0,0,0,0.12);
+		position: relative;
+		border-radius: 8px;
+		box-sizing: inherit;
+		direction: ltr;
+		line-height: 1.5;
+		font-size: 14px;
+
+		height: auto;
+		text-align: center;
+		padding: 10px;
 }
 
 #stwo-col
@@ -648,10 +683,11 @@ ul.contact li a.icon-rss:before
 
 #featured-wrapper
 {
-	overflow: hidden;
+	/*overflow: hidden;
 	padding: 10em 0em;
 	background: #FFF;
-	text-align: center;
+	text-align: center;*/
+	display: inline;
 }
 
 #featured

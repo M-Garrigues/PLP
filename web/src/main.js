@@ -4,7 +4,7 @@ require("./assets/template/fonts.css");
 require("./assets/template/main.css");
 
 
-Vue.config.productionTip = true
+Vue.config.productionTip = true;
 
 new Vue({
   render: h => h(App),
