@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <Match v-for="match of matches" :key="match.id" :H_team="match.H_team" :A_team="match.A_team" :H_cote="match.H_cote"
+        <Match v-for="match of filteredMatches" :key="match.id" :H_team="match.H_team" :A_team="match.A_team" :H_cote="match.H_cote"
               :D_cote="match.D_cote" :A_cote="match.A_cote" :league="match.league"></Match>
     </div>
 </template>
@@ -16,6 +16,9 @@
     export default {
         name: "MatchList",
         components: {Match},
+        props: [
+            'leagueFilter'
+        ],
         data() {
             return {
                 matches: [
@@ -111,9 +114,13 @@
                     }
                 ]
             }
+        },
+        computed: {
+            filteredMatches: function(){
+                return this.matches.filter(match => (match.league === this.leagueFilter || this.leagueFilter === ""));
+            }
         }
     }
-
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
-    <MainWrapper></MainWrapper>
+    <Navbar @onMenuClick="onMenuClick"></Navbar>
+    <MainWrapper :leagueFilter=leagueFilter></MainWrapper>
     <Footer></Footer>
   </div>
 </template>
@@ -17,6 +17,16 @@ export default {
     Footer,
     MainWrapper,
     Navbar
+  },
+  data() {
+    return {
+      leagueFilter: ""
+    }
+  },
+  methods: {
+    onMenuClick(newValue) {
+      this.leagueFilter = newValue;
+    }
   }
 }
 </script>

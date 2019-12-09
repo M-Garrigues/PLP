@@ -13,12 +13,12 @@
         <div id="menu-wrapper">
             <div id="menu">
                 <ul>
-                    <li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
-                    <li><a href="#" accesskey="2" title="">Ligue 1</a></li>
-                    <li><a href="#" accesskey="3" title="">Premier League</a></li>
-                    <li><a href="#" accesskey="4" title="">La Liga</a></li>
-                    <li><a href="#" accesskey="5" title="">Bundesliga</a></li>
-                    <li><a href="#" accesskey="5" title="">Serie A</a></li>
+                    <li class="current_page_item"><a href="#" accesskey="" value="" @click="menuClicked" >Homepage</a></li>
+                    <li><a href="#" accesskey="ligue1" value="ligue1" @click="menuClicked" >Ligue 1</a></li>
+                    <li><a href="#" accesskey="premierLeague" value="premierLeague" @click="menuClicked">Premier League</a></li>
+                    <li><a href="#" accesskey="liga" value="liga" @click="menuClicked">La Liga</a></li>
+                    <li><a href="#" accesskey="bundesliga" value="bundesliga" @click="menuClicked">Bundesliga</a></li>
+                    <li><a href="#" accesskey="serieA" value="serieA" @click="menuClicked">Serie A</a></li>
                 </ul>
             </div>
         </div>
@@ -27,7 +27,18 @@
 
 <script>
     export default {
-        name: "Navbar"
+        name: "Navbar",
+
+        data() {
+            return {
+                leagueFilter: ""
+            }
+        },
+        methods: {
+            menuClicked: function (event) {
+                this.$emit('onMenuClick', event.target.accessKey)
+            }
+        }
     }
 </script>
 

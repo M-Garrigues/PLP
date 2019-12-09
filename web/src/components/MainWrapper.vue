@@ -2,7 +2,7 @@
     <div id="wrapper">
         <div id="featured-wrapper">
             <SideBar></SideBar>
-            <MatchList></MatchList>
+            <MatchList :leagueFilter=this.leagueFilter></MatchList>
         </div>
     </div>
 </template>
@@ -12,7 +12,10 @@
     import MatchList from "./in-wrapper/MatchList";
     export default {
         name: "MainWrapper",
-        components: {MatchList, SideBar}
+        components: {MatchList, SideBar},
+        props: [
+            'leagueFilter'
+        ],
     }
 </script>
 
