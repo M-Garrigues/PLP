@@ -3,7 +3,6 @@
         <div id="header-wrapper">
             <div id="header" class="container">
                 <div id="logo">
-                    <span class="icon icon-group"></span>
                     <h1><a href="#">PLP</a></h1>
                     <span>Laziness is key to <a href="https://i.kym-cdn.com/entries/icons/original/000/000/248/profit.jpg" rel="nofollow" target="_blank">profit</a></span>
                 </div>
