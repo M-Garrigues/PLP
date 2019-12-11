@@ -16,8 +16,11 @@
             "H_team",
             "A_team",
             "H_cote",
+            "H_ind",
             "D_cote",
+            "D_ind",
             "A_cote",
+            "A_ind",
             "league"
         ]
     }
