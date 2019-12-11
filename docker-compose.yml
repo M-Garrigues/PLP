@@ -48,12 +48,14 @@ services:
       - traefik.http.services.plp_web.loadbalancer.server.port=8080
       
     networks:
-      - proxy
+      - internal
     depends_on:
       - plp_reverse_proxy
+      - plp_api
 
 
   plp_mongodb:
+    restart: always
     image: mongo:$TAG_MONGODB
     container_name: plp_mongodb
     environment:
@@ -61,13 +63,18 @@ services:
       - MONGO_LOG_DIR=/dev/null
     volumes:
       - ./etc/mongodb/data:/data/db
-    ports:
-        - 27017:27017
     command: mongod --logpath=/dev/null # --quiet
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.plp_mongodb.loadbalancer.server.port=27017
+    networks:
+      - internal
+    depends_on:
+      - plp_reverse_proxy
 
 
   plp_api:
-
+    restart: always
     container_name: plp_api
     image: im_plp_api_dev
     environment:
@@ -75,9 +82,17 @@ services:
     build: 
       context: ./etc/flask
       dockerfile: Dockerfile
+      args:
+        TAG_PYTHON: $TAG_PYTHON
     command: flask run
-    ports:
-      - "5000:5000"
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.plp_api.loadbalancer.server.port=5000
+    networks:
+      - internal
+    depends_on:
+      - plp_mongodb
+      - plp_reverse_proxy
 
 
   #redis:
