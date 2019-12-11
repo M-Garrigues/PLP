@@ -997,7 +997,39 @@ ul.contact li a.icon-rss:before
 {
 	margin-top: 10em;
 }
-
+.hexagonLittle {
+	margin: 0 auto 1em auto;
+	width: 20px;
+	height: 13.3px;
+	line-height: 13.3px;
+	background: #FFC000;
+	position: relative;
+	text-align: center;
+	color: #FFF;
+	font-size: 1em;
+}
+.hexagonLittle:before {
+	content: "";
+	position: absolute;
+	top: -5px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 5px solid #FFC000;
+}
+.hexagonLittle:after {
+	content: "";
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 5px solid #FFC000;
+}
 .hexagon {
 	margin: 0 auto 2em auto;
 	width: 120px;
