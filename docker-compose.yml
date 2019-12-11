@@ -41,8 +41,8 @@ services:
     build: 
       context: ./web
       args:
-        TAG_NODE: "${TAG_NODE}"
-        TAG_VUECLI: "${TAG_VUECLI}"
+        TAG_NODE: $TAG_NODE
+        TAG_VUECLI: $TAG_VUECLI
     labels:
       - traefik.enable=true
       - traefik.http.services.plp_web.loadbalancer.server.port=8080
@@ -51,3 +51,34 @@ services:
       - proxy
     depends_on:
       - plp_reverse_proxy
+
+
+  plp_mongodb:
+    image: mongo:$TAG_MONGODB
+    container_name: plp_mongodb
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./etc/mongodb/data:/data/db
+    ports:
+        - 27017:27017
+    command: mongod --logpath=/dev/null # --quiet
+
+
+  plp_api:
+
+    container_name: plp_api
+    image: im_plp_api_dev
+    environment:
+      - PYTHONUNBUFFERED=0
+    build: 
+      context: ./etc/flask
+      dockerfile: Dockerfile
+    command: flask run
+    ports:
+      - "5000:5000"
+
+
+  #redis:
+  #  image: "redis:alpine"
