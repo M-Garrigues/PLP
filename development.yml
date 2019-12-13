@@ -29,11 +29,15 @@ services:
      - traefik.http.routers.plp_web.rule=Host(`${DEV_PLP_PATH}`)
      - traefik.http.routers.plp_web.entrypoints=https, http
 
+
+
   plp_mongodb:
     labels:
 
-     - traefik.http.routers.plp_mongodb.rule=Host(`${DEV_DB_PATH}`)
-     - traefik.http.routers.plp_mongodb.entrypoints=https, http
+     - traefik.tcp.routers.plp_mongodb.rule=HostSNI(`${DEV_DB_PATH}`)
+     #- traefik.tcp.routers.plp_mongodb.entrypoints=https, http
+
+
 
   plp_api:
     labels:

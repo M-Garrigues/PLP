@@ -64,11 +64,14 @@ services:
     volumes:
       - ./etc/mongodb/data:/data/db
     command: mongod --logpath=/dev/null # --quiet
-    labels:
-      - traefik.enable=true
-      - traefik.http.services.plp_mongodb.loadbalancer.server.port=27017
+    #labels:
+      #- traefik.enable=true
+      #- traefik.tcp.services.plp_mongodb.loadbalancer.server.port=27017
     networks:
       - internal
+      - proxy #temporary, need to find fix
+    ports:
+      - 27017:27017 #temporary, need to find fix
     depends_on:
       - plp_reverse_proxy
 
