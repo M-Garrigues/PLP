@@ -41,13 +41,62 @@ services:
     build: 
       context: ./web
       args:
-        TAG_NODE: "${TAG_NODE}"
-        TAG_VUECLI: "${TAG_VUECLI}"
+        TAG_NODE: $TAG_NODE
+        TAG_VUECLI: $TAG_VUECLI
     labels:
       - traefik.enable=true
       - traefik.http.services.plp_web.loadbalancer.server.port=8080
       
     networks:
-      - proxy
+      - internal
     depends_on:
       - plp_reverse_proxy
+      - plp_api
+
+
+  plp_mongodb:
+    restart: always
+    image: mongo:$TAG_MONGODB
+    container_name: plp_mongodb
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./etc/mongodb/data:/data/db
+    command: mongod --logpath=/dev/null # --quiet
+    #labels:
+      #- traefik.enable=true
+      #- traefik.tcp.services.plp_mongodb.loadbalancer.server.port=27017
+    networks:
+      - internal
+      - proxy #temporary, need to find fix
+    ports:
+      - 27017:27017 #temporary, need to find fix
+    depends_on:
+      - plp_reverse_proxy
+
+
+  plp_api:
+    restart: always
+    container_name: plp_api
+    image: im_plp_api_dev
+    environment:
+      - PYTHONUNBUFFERED=0
+    build: 
+      context: ./etc/flask
+      dockerfile: Dockerfile
+      args:
+        TAG_PYTHON: $TAG_PYTHON
+    command: flask run
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.plp_api.loadbalancer.server.port=5000
+    networks:
+      - internal
+    depends_on:
+      - plp_mongodb
+      - plp_reverse_proxy
+
+
+  #redis:
+  #  image: "redis:alpine"
