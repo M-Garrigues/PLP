@@ -1,7 +1,5 @@
-#data base
+etc/mongodb/
 
-etc/mongodb/data/*
-./etc/mongodb/data/*
 # Logs
 logs
 *.log
