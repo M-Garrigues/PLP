@@ -9,7 +9,7 @@
             <h1>Loading ...</h1>
         </div>
         <Match v-for="match of filteredMatches" :key="match.id" :H_team="match.H_team" :A_team="match.A_team" :H_cote="match.H_cote"
-              :D_cote="match.D_cote" :A_cote="match.A_cote" :league="match.league"></Match>
+               :H_ind="match.H_ind" :D_cote="match.D_cote" :D_ind="match.D_ind" :A_cote="match.A_cote" :A_ind="match.A_ind" :league="match.league"></Match>
     </div>
 </template>
 

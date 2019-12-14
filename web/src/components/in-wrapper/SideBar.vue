@@ -5,8 +5,8 @@
                 <h2>Rating</h2>
             </div>
         </div>
-        <div id="indicator">
-            <div class="hexagon"><span>9.1</span></div>
+        <div id="indicator" align="center">
+            <div class="hex hex2"><div class="hex-in1"><div class="hex-in2"><span>9.1</span></div></div></div>
         </div>
 
 
