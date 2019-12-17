@@ -31,10 +31,10 @@ services:
 
 
 
-  plp_mongodb:
-    labels:
+  #plp_mongodb:
+    #labels:
 
-     - traefik.tcp.routers.plp_mongodb.rule=HostSNI(`${DEV_DB_PATH}`)
+     #- traefik.tcp.routers.plp_mongodb.rule=HostSNI(`${DEV_DB_PATH}`)
      #- traefik.tcp.routers.plp_mongodb.entrypoints=https, http
 
 

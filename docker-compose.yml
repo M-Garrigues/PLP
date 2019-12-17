@@ -55,7 +55,6 @@ services:
 
 
   plp_mongodb:
-    restart: always
     image: mongo:$TAG_MONGODB
     container_name: plp_mongodb
     environment:

@@ -2,7 +2,6 @@ import axios from 'axios'
 
 const MatchService = {
     getMatches: async () => {
-        alert("Hello");
         axios.defaults.baseURL = 'http://plp.localhost';
         return await axios
             .get('http://api.localhost/matches')
@@ -15,7 +14,10 @@ const MatchService = {
                     H_cote: match.H_cote,
                     D_cote: match.D_cote,
                     A_cote: match.A_cote,
-                    league: match.league
+                    league: match.league,
+                    H_ind: match.H_ind,
+                    A_ind: match.A_ind,
+                    D_ind: match.D_ind
                 }));
             });
     }

@@ -1,4 +1,4 @@
-etc/mongodb/
+etc/mongodb/data/
 
 # Logs
 logs
