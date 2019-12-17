@@ -1,0 +1,143 @@
+
+[
+{
+"_id": {
+"$oid": "5df8d568d4d14754104f8a69"
+},
+"H_team" : "PSG",
+"A_team" : "OL",
+"H_cote" : 1.56,
+"H_ind"  : 2,
+"D_cote" : 3.38,
+"D_ind"  : 2,
+"A_cote" : 6.09,
+"A_ind"  : 2,
+"league" : "ligue1"
+},
+{
+"_id": {
+"$oid": "5df8d568d4d14754104f8a70"
+},
+"H_team" : "Reims",
+"A_team" : "OM",
+"H_cote" : 2.46,
+"H_ind"  : 2,
+"D_cote" : 5.48,
+"D_ind"  : 2,
+"A_cote" : 1.99,
+"A_ind"  : 2,
+"league" : "ligue1"
+},
+{
+"_id": {
+"$oid": "5df8d568d4d14754104f8a71"
+},
+"H_team" : "Nîmes",
+"A_team" : "Saint-Etienne",
+"H_cote" : 4.87,
+"H_ind"  : 2,
+"D_cote" : 2.32,
+"D_ind"  : 2,
+"A_cote" : 2.94,
+"A_ind"  : 2,
+"league" : "ligue1"
+},
+{
+"_id": {
+"$oid": "5df8d568d4d14754104f8a72"
+},
+"H_team" : "Liverpool",
+"A_team" : "Bournemouth",
+"H_cote" : 1.56,
+"H_ind"  : 2,
+"D_cote" : 3.38,
+"D_ind"  : 2,
+"A_cote" : 6.09,
+"A_ind"  : 2,
+"league" : "premierLeague"
+},
+{
+"_id": {
+"$oid": "5df8d568d4d14754104f8a73"
+},
+"H_team" : "Bayern Munich",
+"A_team" : "RB Leipzig",
+"H_cote" : 1.78,
+"H_ind"  : 2,
+"D_cote" : 3.27,
+"D_ind"  : 2,
+"A_cote" : 6.10,
+"A_ind"  : 2,
+"league" : "bundesliga"
+},
+{
+"_id": {
+"$oid": "5df8d568d4d14754104f8a74"
+},
+"H_team" : "Juve",
+"A_team" : "Bologna",
+"H_cote" : 6.01,
+"H_ind"  : 2,
+"D_cote" : 2.19,
+"D_ind"  : 2,
+"A_cote" : 9.10,
+"A_ind"  : 2,
+"league" : "serieA"
+},
+{
+"_id": {
+"$oid": "5df8d568d4d14754104f8a75"
+},
+"H_team" : "Fiorentina",
+"A_team" : "AC Milan",
+"H_cote" : 4.81,
+"H_ind"  : 2,
+"D_cote" : 1.12,
+"D_ind"  : 2,
+"A_cote" : 7.04,
+"A_ind"  : 2,
+"league" : "serieA"
+},
+{
+"_id": {
+"$oid": "5df8d568d4d14754104f8a76"
+},
+"H_team" : "FC Barcelona",
+"A_team" : "Eibar",
+"H_cote" : 1.25,
+"H_ind"  : 2,
+"D_cote" : 4.78,
+"D_ind"  : 2,
+"A_cote" : 10.29,
+"A_ind"  : 2,
+"league" : "liga"
+},
+{
+"_id": {
+"$oid": "5df8d568d4d14754104f8a77"
+},
+"H_team" : "Valencia",
+"A_team" : "Real Madrid",
+"H_cote" : 4.32,
+"H_ind"  : 2,
+"D_cote" : 3.82,
+"D_ind"  : 2,
+"A_cote" : 2.41,
+"A_ind"  : 2,
+"league" :"liga"
+    },
+    {
+        "_id": {
+            "$oid": "5df8d568d4d14754104f8a78"
+        },
+        "H_team" : "Bordeaux",
+        "A_team" : "Rennes",
+        "H_cote" : 2.54,
+        "H_ind"  : 2,
+        "D_cote" : 3.87,
+        "D_ind"  : 2,
+        "A_cote" : 2.45,
+        "A_ind"  : 2,
+        "league" : "ligue1"
+    }
+]
