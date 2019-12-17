@@ -61,7 +61,7 @@ services:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
     volumes:
-      - ./etc/mongodb/data:/data/db
+      - mongodata:/data/db
     command: mongod --logpath=/dev/null # --quiet
     #labels:
       #- traefik.enable=true
@@ -97,5 +97,6 @@ services:
       - plp_reverse_proxy
 
 
-  #redis:
-  #  image: "redis:alpine"
+volumes:
+  mongodata:
+    external: true
