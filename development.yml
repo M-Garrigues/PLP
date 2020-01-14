@@ -58,6 +58,8 @@ services:
       #args
     ports:
       - 8888:8888
+    labels:
+      - traefik.enable=false
     networks:
       - proxy
     depends_on:
