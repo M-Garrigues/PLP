@@ -8,8 +8,9 @@ CORS(app)
 
 @app.route('/matches')
 def api():
- client = MongoClient("mongodb://plp_mongodb:27017")
- return dumps(client.test_matches.matches.find())
+	client = MongoClient("mongodb://plp_mongodb:27017")
+	coll = client["plp"]["apibase"] 
+	return dumps(coll.find({}))
 
 if __name__ == '__main__':
  app.run(debug=True)

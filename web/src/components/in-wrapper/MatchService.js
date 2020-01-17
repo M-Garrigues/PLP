@@ -9,15 +9,15 @@ const MatchService = {
             .then(response => {
                 return response.map(match => ({
                     id: match._id.$oid,
-                    H_team: match.H_team,
-                    A_team: match.A_team,
-                    H_cote: match.H_cote,
-                    D_cote: match.D_cote,
-                    A_cote: match.A_cote,
+                    H_team: match.teamH,
+                    A_team: match.teamA,
+                    H_cote: match.odd_H,
+                    D_cote: match.odd_D,
+                    A_cote: match.odd_A,
                     league: match.league,
-                    H_ind: match.H_ind,
-                    A_ind: match.A_ind,
-                    D_ind: match.D_ind
+                    H_ind: match.RI_H,
+                    A_ind: match.RI_A,
+                    D_ind: match.RI_D
                 }));
             });
     }
