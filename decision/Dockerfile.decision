@@ -1,0 +1,13 @@
+# Set the base image
+FROM jupyter/base-notebook:python-3.7.3
+
+# Set working directory 
+WORKDIR /home/notebooks
+
+ADD requirements_notebooks.txt /app/
+
+# Installs, clean, and update   
+RUN pip install -r /app/requirements_notebooks.txt
+
+# Run shell command for notebook on start 
+CMD jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root

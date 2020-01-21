@@ -44,3 +44,24 @@ services:
 
      - traefik.http.routers.plp_api.rule=Host(`${DEV_API_PATH}`)
      - traefik.http.routers.plp_api.entrypoints=https, http
+
+
+  jupyter_notebooks:
+    restart: always
+    build: 
+      context: ./decision
+      dockerfile: Dockerfile.decision
+    container_name: jupyter_notebooks
+    image: im_plp_jupyter_notebooks
+    volumes:
+      - ./decision/notebooks:/home/notebooks
+      #args
+    ports:
+      - 8888:8888
+    labels:
+      - traefik.enable=false
+    networks:
+      - proxy
+    depends_on:
+      - plp_reverse_proxy
+      - plp_api
