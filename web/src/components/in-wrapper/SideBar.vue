@@ -2,7 +2,7 @@
     <div id="sidebar">
         <div id="header">
             <div class="title">
-                <h2>Rating</h2>
+                <h2>Indicateur</h2>
             </div>
         </div>
         <div id="indicator" align="center">
@@ -12,21 +12,59 @@
 
         <div class="ebox2">
             <div class="title">
-                <h3>Bet selector</h3>
+                <h3>Sélecteur de paris</h3>
             </div>
-            <label>
-                Amount:
-                <input>
-            </label>
+        <label>
+            Mise:<input>
+        </label>
 
-            <a href="#" class="button">Make my bets !</a>
+            <div class="form-group" style="margin-top:30px">
+                <label>Risque:</label>
+                <label class="radio-inline"><input type="radio" checked="checked" name="risk_level">Bas </label>
+                <label class="radio-inline"><input type="radio" name="risk_level">Moyen </label>
+                <label class="radio-inline"><input type="radio" name="risk_level">Elevé </label>
+            </div>
+
+            <div class="button-group" style="margin-top:30px">
+                <a href="javascript:void(0);" accesskey="ligue1" class="small-button-inline" @click="flagClicked">🇫🇷</a>
+                <a href="javascript:void(0);" accesskey="premierLeague" class="small-button-inline" @click="flagClicked">🏴󠁧󠁢󠁥󠁮󠁧󠁿</a>
+                <a href="javascript:void(0);" accesskey="liga" class="small-button-inline" @click="flagClicked">🇪🇸</a>
+                <a href="javascript:void(0);" accesskey="bundesliga" class="small-button-inline" @click="flagClicked">🇩🇪</a>
+                <a href="javascript:void(0);" accesskey="serieA" class="small-button-inline" @click="flagClicked">🇮🇹</a>
+            </div>
+            <a href="javascript:void(0);" class="button">Faire mes paris</a>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "SideBar"
+        name: "SideBar",
+        data() {
+            return {
+                loading: true,
+                odds_filter: {
+                    "ligue1": true,
+                    "liga": true,
+                    "premierLeague": true,
+                    "bundesliga": true,
+                    "serieA": true
+                }
+            }
+        },
+        methods: {
+            flagClicked: function (event) {
+                var target = event.target;
+                if(target.className === "small-button-inline"){
+                    this.odds_filter[target.accessKey] = false;
+                    target.className = "small-button-inline-toggled"
+                }
+                else{
+                    this.odds_filter[target.accessKey] = true;
+                    target.className = "small-button-inline"
+                }
+            }
+        }
     }
 </script>
 
