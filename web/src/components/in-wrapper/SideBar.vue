@@ -6,7 +6,7 @@
             </div>
         </div>
         <div id="indicator" align="center">
-            <div class="hex hex2"><div class="hex-in1"><div class="hex-in2"><span>9.1</span></div></div></div>
+            <div class="hex hex2"><div class="hex-in1"><div class="hex-in2"><span>{{this.indicator}}</span></div></div></div>
         </div>
 
 
@@ -40,9 +40,13 @@
 <script>
     export default {
         name: "SideBar",
+        props:[
+            "loading",
+            "filteredMatches",
+            "matches"
+        ],
         data() {
             return {
-                loading: true,
                 odds_filter: {
                     "ligue1": true,
                     "liga": true,
@@ -65,7 +69,27 @@
                     target.className = "small-button-inline"
                 }
             }
-        }
+        },
+        computed: {
+            indicator: function(){
+                if (this.loading) return '-';
+                else{
+                    var indicators = [];
+                    this.filteredMatches.forEach( match => {
+                        indicators.push(match.H_ind);
+                        indicators.push(match.D_ind);
+                        indicators.push(match.A_ind);
+                    });
+                    var sorted = indicators.sort(function(a, b) {
+                        return b - a;
+                    });
+                    sorted = sorted.slice(0, 10);
+                    let sum = indicators.reduce((previous, current) => current += previous);
+                    let avg = sum / sorted.length;
+                    return avg.toFixed(1);
+                }
+            }
+        },
     }
 </script>
 
