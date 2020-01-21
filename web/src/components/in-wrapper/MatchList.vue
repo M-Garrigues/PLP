@@ -15,32 +15,14 @@
 
 <script>
     import Match from "./Match";
-    import MatchService from "./MatchService";
-
     export default {
         name: "MatchList",
         components: {Match},
         props: [
-            'leagueFilter'
-        ],
-        data() {
-            return {
-                loading: true,
-                matches: []
-            }
-        },
-        methods: {},
-        computed: {
-            filteredMatches: function(){
-                if (this.loading) return[];
-                else
-                    return this.matches.filter(match => (match.league === this.leagueFilter || this.leagueFilter === ""));
-            }
-        },
-        async mounted() {
-            this.matches = await MatchService.getMatches();
-            this.loading = false;
-        }
+            'leagueFilter',
+            'filteredMatches',
+            'loading'
+        ]
     }
 </script>
 

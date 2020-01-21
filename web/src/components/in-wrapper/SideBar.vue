@@ -50,7 +50,7 @@
                     "bundesliga": true,
                     "serieA": true
                 },
-                risk:1
+                risk: 1
             }
         },
         methods: {
