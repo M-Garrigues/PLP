@@ -20,9 +20,9 @@
 
             <div class="form-group" style="margin-top:30px">
                 <label>Risque:</label>
-                <label class="radio-inline"><input type="radio" checked="checked" name="risk_level">Bas </label>
-                <label class="radio-inline"><input type="radio" name="risk_level">Moyen </label>
-                <label class="radio-inline"><input type="radio" name="risk_level">Elevé </label>
+                <label class="radio-inline"><input type="radio" checked="checked" name="risk_level" @click="risk = 1">Bas </label>
+                <label class="radio-inline"><input type="radio" name="risk_level" @click="risk = 2">Moyen </label>
+                <label class="radio-inline"><input type="radio" name="risk_level" @click="risk = 3">Elevé </label>
             </div>
 
             <div class="button-group" style="margin-top:30px">
@@ -49,12 +49,13 @@
                     "premierLeague": true,
                     "bundesliga": true,
                     "serieA": true
-                }
+                },
+                risk:1
             }
         },
         methods: {
             flagClicked: function (event) {
-                var target = event.target;
+                let target = event.target;
                 if(target.className === "small-button-inline"){
                     this.odds_filter[target.accessKey] = false;
                     target.className = "small-button-inline-toggled"
