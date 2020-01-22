@@ -1,5 +1,8 @@
 <template>
     <div id="sidebar">
+        <BetsModal :risk=this.risk :matches=this.matches :odds_filter=this.odds_filter v-if="showModal" @close="showModal = false">
+            <h3 slot="header">custom header</h3>
+        </BetsModal>
         <div id="header">
             <div class="title">
                 <h2>Indicateur</h2>
@@ -32,14 +35,17 @@
                 <a href="javascript:void(0);" accesskey="bundesliga" class="small-button-inline" @click="flagClicked">🇩🇪</a>
                 <a href="javascript:void(0);" accesskey="serieA" class="small-button-inline" @click="flagClicked">🇮🇹</a>
             </div>
-            <a href="javascript:void(0);" class="button">Faire mes paris</a>
+            <a href="javascript:void(0);" @click="showModal = true" class="button">Faire mes paris</a>
         </div>
     </div>
 </template>
 
 <script>
+
+    import BetsModal from "../modal/BetsModal"
     export default {
         name: "SideBar",
+        components: {BetsModal},
         props:[
             "loading",
             "filteredMatches",
@@ -47,6 +53,7 @@
         ],
         data() {
             return {
+                showModal: false,
                 odds_filter: {
                     "ligue1": true,
                     "liga": true,

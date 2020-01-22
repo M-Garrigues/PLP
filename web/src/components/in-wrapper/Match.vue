@@ -46,7 +46,7 @@
         ],
         methods: {
             indicatorColor: function(indicator) {
-                return indicator > 0 ? "#00CED1" : "#87CEFA";
+                return indicator < 4 ? "#00CED1" : "#fae614";
             },
         }
     }

@@ -2,7 +2,7 @@
     <div id="wrapper">
         <div id="featured-wrapper">
             <SideBar :loading=this.loading :filteredMatches=this.filteredMatches :matches=this.matches></SideBar>
-            <MatchList :leagueFilter=this.leagueFilter :filteredMatches=this.filteredMatches :loading="this.loading"></MatchList>
+            <MatchList :leagueFilter=this.leagueFilter :filteredMatches=this.filteredMatches :loading=this.loading></MatchList>
         </div>
     </div>
 </template>
