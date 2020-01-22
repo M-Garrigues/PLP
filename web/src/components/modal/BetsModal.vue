@@ -37,10 +37,10 @@
             "risk",
             "matches",
             "odds_filter",
-            "bet"
+            "bet_amount"
         ],
         methods: {
-            flagClicked: function (event) {
+            expectation: function (bet, bets) {
                 let target = event.target;
                 if (target.className === "small-button-inline") {
                     this.odds_filter[target.accessKey] = false;
@@ -53,10 +53,15 @@
         },
         computed: {
 
+            filteredMatches: function(){
+
+                return this.matches.filter(match => this.odds_filter[match.league]);
+            },
+
             sortedBets: function () {
 
                 var indicators = [];
-                this.matches.forEach( match => {
+                this.filteredMatches.forEach( match => {
                     indicators.push({ ind: match.H_ind,
                                       pred: match.H_pred,
                                       side: 'H',
@@ -77,7 +82,9 @@
 
             lowRiskBets: function(){
                 return this.sortedBets.slice(0, 1);
-            }
+            },
+
+
         }
     }
 
