@@ -10,7 +10,7 @@
 <script>
     import SideBar from "./in-wrapper/SideBar";
     import MatchList from "./in-wrapper/MatchList";
-    import MatchService from "./in-wrapper/MatchService";
+    import MatchService from "./services/MatchService";
     export default {
 
         name: "MainWrapper",

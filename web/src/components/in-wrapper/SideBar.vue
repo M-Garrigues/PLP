@@ -1,6 +1,6 @@
 <template>
     <div id="sidebar">
-        <BetsModal :risk=this.risk :matches=this.matches :odds_filter=this.odds_filter v-if="showModal" @close="showModal = false">
+        <BetsModal :bet=this.bet :risk=this.risk :matches=this.matches :odds_filter=this.odds_filter v-if="showModal" @close="showModal = false">
             <h3 slot="header">custom header</h3>
         </BetsModal>
         <div id="header">
@@ -18,7 +18,7 @@
                 <h3>Sélecteur de paris</h3>
             </div>
         <label>
-            Mise:<input>
+            Mise:<input v-model="bet">
         </label>
 
             <div class="form-group" style="margin-top:30px">
@@ -61,7 +61,8 @@
                     "bundesliga": true,
                     "serieA": true
                 },
-                risk: 1
+                risk: 1,
+                bet: 10
             }
         },
         methods: {

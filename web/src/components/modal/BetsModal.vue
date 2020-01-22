@@ -18,7 +18,7 @@
 
                 <div class="modal-footer">
                     <slot name="footer">
-                        default footer
+                        {{lowRiskBets}}
                         <button class="button" @click="$emit('close')">
                             OK
                         </button>
@@ -33,11 +33,52 @@
 <script>
     export default {
         name: "BetsModal",
-        props:[
+        props: [
             "risk",
             "matches",
-            "odds_filter"
-        ]
+            "odds_filter",
+            "bet"
+        ],
+        methods: {
+            flagClicked: function (event) {
+                let target = event.target;
+                if (target.className === "small-button-inline") {
+                    this.odds_filter[target.accessKey] = false;
+                    target.className = "small-button-inline-toggled"
+                } else {
+                    this.odds_filter[target.accessKey] = true;
+                    target.className = "small-button-inline"
+                }
+            }
+        },
+        computed: {
+
+            sortedBets: function () {
+
+                var indicators = [];
+                this.matches.forEach( match => {
+                    indicators.push({ ind: match.H_ind,
+                                      pred: match.H_pred,
+                                      side: 'H',
+                                      match: match});
+                    indicators.push({ ind: match.D_ind,
+                                      pred: match.D_pred,
+                                      side: 'D',
+                                      match: match});
+                    indicators.push({ ind: match.A_ind,
+                                      pred: match.A_pred,
+                                      side: 'A',
+                                      match: match});
+                });
+                return indicators.sort(function(b1, b2) {
+                    return b2.ind*b2.pred - b1.ind*b1.pred ;
+                });
+            },
+
+            lowRiskBets: function(){
+                return this.sortedBets.slice(0, 1);
+            }
+        }
     }
 
 </script>
