@@ -1,6 +1,6 @@
 {
-  "name": "web",
-  "version": "0.1.0",
+  "name": "PLP",
+  "version": "1.3.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

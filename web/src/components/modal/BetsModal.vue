@@ -12,14 +12,13 @@
 
                 <div class="modal-body">
                     <slot name="body">
-                        default body
+                        <Bet v-for="bet of sortedBets" :key="bet.ind" :bet="bet" :amount="(bet.credit*bet_amount).toFixed(2)"></Bet>
                     </slot>
                 </div>
 
                 <div class="modal-footer">
                     <slot name="footer">
-                        {{lowRiskBets}}
-                        <button class="button" @click="$emit('close')">
+                    <button class="button" @click="$emit('close')">
                             OK
                         </button>
                     </slot>
@@ -31,8 +30,10 @@
 </template>
 
 <script>
+    import Bet from "./Bet";
     export default {
         name: "BetsModal",
+        components: {Bet},
         props: [
             "risk",
             "matches",
@@ -40,21 +41,13 @@
             "bet_amount"
         ],
         methods: {
-            expectation: function (bet, bets) {
-                let target = event.target;
-                if (target.className === "small-button-inline") {
-                    this.odds_filter[target.accessKey] = false;
-                    target.className = "small-button-inline-toggled"
-                } else {
-                    this.odds_filter[target.accessKey] = true;
-                    target.className = "small-button-inline"
-                }
+            expectation: function (bet_amount, bets) {
+                return bet_amount * bets
             }
         },
         computed: {
 
             filteredMatches: function(){
-
                 return this.matches.filter(match => this.odds_filter[match.league]);
             },
 
@@ -62,29 +55,52 @@
 
                 var indicators = [];
                 this.filteredMatches.forEach( match => {
-                    indicators.push({ ind: match.H_ind,
-                                      pred: match.H_pred,
-                                      side: 'H',
-                                      match: match});
-                    indicators.push({ ind: match.D_ind,
-                                      pred: match.D_pred,
-                                      side: 'D',
-                                      match: match});
-                    indicators.push({ ind: match.A_ind,
-                                      pred: match.A_pred,
-                                      side: 'A',
-                                      match: match});
+                    if (match.H_ind >= 0)
+                        indicators.push({ ind: match.H_ind,
+                                    pred: match.H_pred,
+                                    side: 'H',
+                                    odd: match.H_cote,
+                                    teamA: match.A_team,
+                                    teamH : match.H_team,
+                                    credit: 0});
+                    if (match.D_ind >= 0)
+                        indicators.push({ ind: match.D_ind,
+                                    pred: match.D_pred,
+                                    side: 'D',
+                                    odd: match.D_cote,
+                                    teamA: match.A_team,
+                                    teamH : match.H_team,
+                                    credit: 0});
+                    if (match.A_ind >= 0)
+                        indicators.push({ ind: match.A_ind,
+                                    pred: match.A_pred,
+                                    side: 'A',
+                                    odd: match.A_cote,
+                                    teamA: match.A_team,
+                                    teamH : match.H_team,
+                                    credit: 0});
                 });
-                return indicators.sort(function(b1, b2) {
-                    return b2.ind*b2.pred - b1.ind*b1.pred ;
+
+                let sliced_indicators = indicators.sort(function(b1, b2) {
+                    return b2.ind - b1.ind;
+                }).slice(0, indicators.length > 15? 15 : indicators.length);
+
+                var tot = 0;
+
+                sliced_indicators.forEach(bet => {
+                    bet.credit = bet.pred * bet.pred * (bet.pred - 1/bet.odd);
+                    tot += bet.credit;
+                });
+                sliced_indicators.forEach(bet => bet.credit = bet.credit / tot);
+
+                return sliced_indicators.sort(function(b1, b2) {
+                    return b2.credit - b1.credit;
                 });
             },
 
             lowRiskBets: function(){
-                return this.sortedBets.slice(0, 1);
+                return this.sortedBets.slice(0, 10);
             },
-
-
         }
     }
 

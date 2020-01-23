@@ -62,9 +62,9 @@
                     "serieA": true
                 },
                 risk: 1,
-                bet: 10
+                bet_amount: 10
             }
-        },
+        },  
         methods: {
             flagClicked: function (event) {
                 let target = event.target;
