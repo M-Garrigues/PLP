@@ -89,11 +89,13 @@ a:hover
 .modal-wrapper {
 	display: table-cell;
 	vertical-align: middle;
+
 }
 
 .modal-container {
 	
-	width: 900px;
+	width: 600px;
+
 	margin: 0px auto;
 	padding: 20px 30px;
 	background-color: #fff;
@@ -101,6 +103,7 @@ a:hover
 	box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
 	transition: all .4s ease-in-out;
 	font-family: Helvetica, Arial, sans-serif;
+
 }
 
 .modal-header h3 {
@@ -110,6 +113,8 @@ a:hover
 
 .modal-body {
 	margin: 20px 0;
+	overflow-y: auto;
+	height: 300px;
 }
 
 .modal-default-button {

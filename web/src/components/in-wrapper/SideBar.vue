@@ -1,7 +1,6 @@
 <template>
     <div id="sidebar">
         <BetsModal :bet_amount=this.bet_amount :risk=this.risk :matches=this.matches :odds_filter=this.odds_filter v-if="showModal" @close="showModal = false">
-            <h3 slot="header">custom header</h3>
         </BetsModal>
         <div id="header">
             <div class="title">

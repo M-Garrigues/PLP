@@ -1,5 +1,10 @@
 <template>
-    <p> {{bet.teamH}} -- {{bet.teamA}} : Résultat <b>{{bet.side}}</b> Mise : {{this.amount}}€</p>
+    <tr>
+        <td>{{bet.teamH}}</td>
+        <td>{{bet.teamA}}</td>
+        <td>{{bet.side}}</td>
+        <td>{{this.amount}}€</td>
+    </tr>
 </template>
 
 <script>

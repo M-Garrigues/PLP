@@ -3,16 +3,23 @@
     <div class="modal-mask" @click="$emit('close')">
         <div class="modal-wrapper">
             <div class="modal-container">
-
                 <div class="modal-header">
                     <slot name="header">
-                        default header
+                        <h3>Répartition des paris</h3>
                     </slot>
                 </div>
 
                 <div class="modal-body">
                     <slot name="body">
-                        <Bet v-for="bet of sortedBets" :key="bet.ind" :bet="bet" :amount="(bet.credit*bet_amount).toFixed(2)"></Bet>
+                        <table style="width:90%">
+                            <tr>
+                                <th>Domicile</th>
+                                <th>Extérieur</th>
+                                <th>Victoire</th>
+                                <th>Paris</th>
+                            </tr>
+                            <Bet v-for="bet of sortedBets" :key="bet.ind" :bet="bet" :amount="(bet.credit*bet_amount).toFixed(2)"></Bet>
+                        </table>
                     </slot>
                 </div>
 
