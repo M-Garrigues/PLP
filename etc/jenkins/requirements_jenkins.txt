@@ -1,0 +1,8 @@
+mapboxgl
+seaborn
+timestring
+requests
+pymongo
+lxml
+ipykernel<=5.1.1
+jupyter
