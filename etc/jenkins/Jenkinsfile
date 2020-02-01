@@ -1,6 +1,6 @@
 pipeline {
    agent { docker { image 'python:3.7.2' } }
-   String cron_string = BRANCH_NAME == "master" ? "@hourly" : ""
+   String cron_string = "@hourly"
    triggers { cron(cron_string) }
    stages {
      stage('build env') {
