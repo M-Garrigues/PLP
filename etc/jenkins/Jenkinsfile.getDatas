@@ -4,7 +4,7 @@ pipeline {
      stage('getDatas') {
        steps {
          echo 'Datas'
-         sh 'jupyter --version && python -V && python --version'
+         sh 'python --version && jupyter --version'
        }
      }
      stage('get datas') {
