@@ -7,16 +7,13 @@ FROM jenkins/jenkins:lts
 # Install app dependencies
 USER root
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get install -y python-pip
-RUN pip install --upgrade pip
+RUN apt-get install -y python3-pip && pip3 --version
+RUN pip3 install --upgrade pip3
 
 ADD requirements_jenkins.txt /app/
-RUN pip install -r /app/requirements_jenkins.txt
-
+RUN pip3 install -r /app/requirements_jenkins.txt
+#CMD python --version && python -V
 USER jenkins
-# Run shell command for jenkins on start
-#CMD jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root
 
 #CMD ls /var/jenkins_home
-
 #COPY plp_jenkins:/var/jenkins_home/secrets/initialAdminPassword .
