@@ -1,0 +1,19 @@
+pipeline {
+   agent { docker { image 'python:3.7.2' } }
+   String cron_string = "@hourly"
+   triggers { cron(cron_string) }
+   stages {
+     stage('build env') {
+       steps {
+         echo 'Building ...'
+         sh 'jupyter --version'
+       }
+     }
+     stage('get datas') {
+       steps {
+         sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineGetRawData.ipynb'
+         sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineDeRrrrafinnage.ipynb'
+       }
+     }
+   }
+ }

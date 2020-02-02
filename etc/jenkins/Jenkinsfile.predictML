@@ -9,12 +9,6 @@ pipeline {
          sh 'pip install -r decision/PLP_ML/requirements.txt && jupyter --version'
        }
      }
-     stage('get datas') {
-       steps {
-         sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineGetRawData.ipynb'
-         sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineDeRrrrafinnage.ipynb'
-       }
-     }
      stage('train ML') {
        steps {
          sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=600 decision/PLP_ML/ML.ipynb'
