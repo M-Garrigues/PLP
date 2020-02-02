@@ -1,18 +1,26 @@
 # Set the base image
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:alpine
 
-# Set working directory
-#WORKDIR /home/jenkins
+USER root
+
+# Install Python 3
+RUN apk add --no-cache python3 && \
+ python3 -m ensurepip && \
+ pip3 install --upgrade pip setuptools && \
+ if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+ if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+ rm -r /root/.cache
+RUN apk add pkgconf
+RUN apk add build-base
+RUN apk add python3-dev
+
 
 # Install dependencies
-USER root
-RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get install -y python3-pip && pip3 --version
-RUN pip3 install --upgrade setuptools pip
-
 ADD requirements_jenkins.txt /app/
 RUN pip3 install -r /app/requirements_jenkins.txt
 CMD python --version && jupyter --version
+
+
 USER jenkins
 
 #CMD ls /var/jenkins_home
