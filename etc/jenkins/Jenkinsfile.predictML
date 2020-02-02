@@ -1,12 +1,10 @@
 pipeline {
    agent { docker { image 'python:3.7.2' } }
-   String cron_string = "@hourly"
-   triggers { cron(cron_string) }
    stages {
      stage('build env') {
        steps {
-         echo 'Building ***'
-         sh 'pip install -r decision/PLP_ML/requirements.txt && jupyter --version'
+         echo 'ML'
+         sh 'jupyter --version'
        }
      }
      stage('train ML') {
