@@ -4,7 +4,7 @@ pipeline {
         stage('Buid env') {
             steps {
                 echo 'Datas'
-                sh 'pip install -r app/requirements_jenkins.txt'
+                sh 'pip install --upgrade pip  && pip install -r app/requirements_jenkins.txt'
                 sh 'python --version && jupyter --version'
             }
         }
