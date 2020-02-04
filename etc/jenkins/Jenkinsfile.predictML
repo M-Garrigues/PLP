@@ -3,17 +3,16 @@ pipeline {
     stages {
         stage('build env') {
             steps {
-                echo 'ML'
-                sh 'jupyter --version'
+                sh 'pip install --upgrade pip  && pip install -r etc/jenkins/requirements_jenkins.txt'
             }
         }
         stage('train ML') {
             steps {
-                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=600 decision/PLP_ML/ML.ipynb'
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=10000 decision/PLP_ML/ML.ipynb'
             }
             stage('predict ML') {
                 steps {
-                    sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=600 decision/PLP_ML/MLPredict.ipynb'
+                    sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=10000 decision/PLP_ML/MLPredict.ipynb'
                 }
             }
         }

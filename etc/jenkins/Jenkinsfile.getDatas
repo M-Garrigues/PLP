@@ -3,15 +3,13 @@ pipeline {
     stages {
         stage('Buid env') {
             steps {
-                echo 'Datas'
                 sh 'pip install --upgrade pip  && pip install -r etc/jenkins/requirements_jenkins.txt'
-                sh 'python --version && jupyter --version'
             }
         }
         stage('get datas') {
             steps {
-                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineGetRawData.ipynb'
-                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineDeRrrrafinnage.ipynb'
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=10000 decision/PLP_ML/PipelineGetRawData.ipynb'
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=10000 decision/PLP_ML/PipelineDeRrrrafinnage.ipynb'
             }
         }
     }
