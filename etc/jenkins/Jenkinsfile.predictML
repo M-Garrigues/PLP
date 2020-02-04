@@ -8,12 +8,12 @@ pipeline {
         }
         stage('train ML') {
             steps {
-                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=10000 decision/PLP_ML/ML.ipynb'
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/PLP_ML/ML.ipynb'
             }
         }
         stage('predict ML') {
             steps {
-                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=10000 decision/PLP_ML/MLPredict.ipynb'
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/PLP_ML/MLPredict.ipynb'
             }
         }
     }
