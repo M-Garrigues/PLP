@@ -1,17 +1,18 @@
 pipeline {
-   agent any
-   stages {
-     stage('getDatas') {
-       steps {
-         echo 'Datas'
-         sh 'python --version && jupyter --version'
-       }
-     }
-     stage('get datas') {
-       steps {
-         sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineGetRawData.ipynb'
-         sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineDeRrrrafinnage.ipynb'
-       }
-     }
-   }
- }
+    agent { docker { image 'python:3.7.2' } }
+    stages {
+        stage('Buid env') {
+            steps {
+                echo 'Datas'
+                sh 'pip install -r app/requirements_jenkins.txt'
+                sh 'python --version && jupyter --version'
+            }
+        }
+        stage('get datas') {
+            steps {
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineGetRawData.ipynb'
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=2000 decision/PLP_ML/PipelineDeRrrrafinnage.ipynb'
+            }
+        }
+    }
+}

@@ -1,19 +1,21 @@
 pipeline {
-   agent { docker { image 'python:3.7.2' } }
-   stages {
-     stage('build env') {
-       steps {
-         echo 'ML'
-         sh 'jupyter --version'
-       }
-     }
-     stage('train ML') {
-       steps {
-         sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=600 decision/PLP_ML/ML.ipynb'
-     }
-     stage('predict ML') {
-       steps {
-         sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=600 decision/PLP_ML/MLPredict.ipynb'
-     }
-   }
- }
+    agent { docker { image 'python:3.7.2' } }
+    stages {
+        stage('build env') {
+            steps {
+                echo 'ML'
+                sh 'jupyter --version'
+            }
+        }
+        stage('train ML') {
+            steps {
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=600 decision/PLP_ML/ML.ipynb'
+            }
+            stage('predict ML') {
+                steps {
+                    sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=600 decision/PLP_ML/MLPredict.ipynb'
+                }
+            }
+        }
+    }
+}
