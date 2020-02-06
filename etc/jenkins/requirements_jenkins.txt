@@ -6,5 +6,5 @@ pymongo
 lxml
 ipykernel==5.1.1
 jupyter
-tensorflow==2.0.0-rc1
+tensorflow==2.0.0-rc0
 pandas
