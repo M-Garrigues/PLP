@@ -483,7 +483,7 @@ ul.contact li a.icon-rss:before
 
 	.title
 {
-	margin-bottom: 3em;
+	margin-bottom: 2em;
 }
 
 .title h2
@@ -596,7 +596,7 @@ ul.contact li a.icon-rss:before
 	{
 		display: inline-block;
 		margin-left: 0.50em;
-		padding: 2em 1.5em 1em 1.5em;
+		padding: 1em 1.5em 0em 1.5em;
 		letter-spacing: 0.20em;
 		text-decoration: none;
 		font-size: 0.90em;
@@ -675,14 +675,13 @@ ul.contact li a.icon-rss:before
 #wrapper
 {
 	background: #f2f3f5;
-	padding: 5em 0;
-	padding-bottom: 1500px;
+	padding: 2em 0;
 }
 
 #page
 {
 	overflow: hidden;
-	padding: 6em 0em;
+	padding: 2em 0em;
 	border-bottom: 2px solid #E3E3E3;
 	text-align: center;
 }
@@ -707,14 +706,8 @@ ul.contact li a.icon-rss:before
 
 	#match-list
 	{
-		background-color:var(--main_color);
 		float: right;
-		width: 65%;
-		margin-right: 3%;
-		box-shadow: none !important;
-		border: 1px solid rgba(0,0,0,0.12);
 		position: relative;
-		border-radius: 8px;
 		box-sizing: inherit;
 		direction: ltr;
 		line-height: 1.5;
@@ -722,14 +715,13 @@ ul.contact li a.icon-rss:before
 
 		height: auto;
 		text-align: center;
-		padding: 10px;
+		margin-top: 4em;
 	}
 	#sidebar
 {
 		background-color:var(--main_color);
 		float: left;
-		width: 25%;
-		margin-left: 3%;
+		width: 100%;
 		box-shadow: none !important;
 		border: 1px solid rgba(0,0,0,0.12);
 		position: relative;
@@ -741,7 +733,9 @@ ul.contact li a.icon-rss:before
 
 		height: auto;
 		text-align: center;
-		padding: 10px;
+		padding-top: 1em;
+		margin-bottom: 1em;
+		padding-bottom: 1em;
 }
 
 #stwo-col

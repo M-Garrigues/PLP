@@ -15,19 +15,16 @@
     <b-container fluid>
       <MainWrapper :leagueFilter=leagueFilter></MainWrapper>
     </b-container>
-    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar";
 import MainWrapper from "./components/MainWrapper";
-import Footer from "./components/Footer";
 
 export default {
   name: 'app',
   components: {
-    Footer,
     MainWrapper,
     Navbar
   },

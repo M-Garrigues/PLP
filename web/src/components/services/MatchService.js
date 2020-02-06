@@ -20,10 +20,36 @@ const MatchService = {
                     D_ind: match.RI_D,
                     H_pred: match.pred_H,
                     D_pred: match.pred_D,
-                    A_pred: match.pred_A
+                    A_pred: match.pred_A,
+                    date: formatDate(match.date),
+                    rawdate: match.date,
+                    hour: match.hour
                 }));
             });
     }
 };
+
+function formatDate(date) {
+
+    let newdate = new Date(date);
+    let monthNames = [
+        "Janvier", "Février", "Mars",
+        "Avril", "Mai", "Juin", "Juillet",
+        "Août", "Septembre", "Octobre",
+        "Novembre", "Décembre"
+    ];
+
+    let dayNames = [
+        "Dimanche", "Lundi", "Mardi",
+        "Mercredi", "Jeudi", "Vendredi", "Samedi"
+    ];
+
+    var dayIndex = newdate.getDay();
+    var monthIndex = newdate.getMonth();
+    var day = newdate.getDate();
+    var year = newdate.getFullYear();
+
+    return dayNames[dayIndex] + ' ' + day + " " + monthNames[monthIndex] + " " + year +  "   - " ;
+}
 
 export default MatchService;

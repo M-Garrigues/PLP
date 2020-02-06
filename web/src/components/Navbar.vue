@@ -7,7 +7,7 @@
             <b-collapse id="nav-collapse" align="center" is-nav>
                 <div id="menu">
                     <ul>
-                        <li class="current_page_item"><a href="javascript:void(0);" accesskey="" value="" @click="menuClicked" >Accueil</a></li>
+                        <li class="current_page_item"><a href="javascript:void(0);" accesskey="" value="" @click="menuClicked" >Tous</a></li>
                         <li><a href="javascript:void(0);" accesskey="ligue1" value="ligue1" @click="menuClicked" >Ligue 1</a></li>
                         <li><a href="javascript:void(0);" accesskey="premierLeague" value="premierLeague" @click="menuClicked">Premier League</a></li>
                         <li><a href="javascript:void(0);" accesskey="liga" value="liga" @click="menuClicked">La Liga</a></li>

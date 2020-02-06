@@ -3,22 +3,21 @@
         <BetsModal :bet_amount=this.bet_amount :risk=this.risk :matches=this.matches :odds_filter=this.odds_filter v-if="showModal" @close="showModal = false">
         </BetsModal>
         <div id="header">
-            <div class="title">
-                <h2>Indicateur</h2>
+            <div class="title" style="text-align: center">
+                <h3>Paris</h3>
             </div>
+
         </div>
         <div id="indicator" align="center">
             <div class="hex hex2"><div class="hex-in1"><div class="hex-in2"><span>{{this.indicator}}</span></div></div></div>
         </div>
 
+        <hr>
+        <div class="b-container">
 
-        <div class="ebox2">
-            <div class="title">
-                <h3>Sélecteur de paris</h3>
-            </div>
-        <label>
-            Mise:<input v-model="bet_amount">
-        </label>
+            <label>
+                Mise:<input v-model="bet_amount">
+            </label>
 
             <div class="form-group" style="margin-top:30px">
                 <label>Risque:</label>
