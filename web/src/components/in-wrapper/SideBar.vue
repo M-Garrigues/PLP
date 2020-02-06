@@ -13,27 +13,39 @@
         </div>
 
         <hr>
-        <div class="b-container">
+        <div class="b-container ">
+            <b-row align-h="center">
+                <b-col cols="8">
+                    <b-form-group label-cols="4" label-cols-lg="2" label="Mise" label-for="input-bet">
+                         <b-form-input v-model="bet_amount" id="input-bet"></b-form-input>
+                    </b-form-group>
+                </b-col>
 
-            <label>
-                Mise:<input v-model="bet_amount">
-            </label>
+            </b-row>
 
-            <div class="form-group" style="margin-top:30px">
-                <label>Risque:</label>
-                <label class="radio-inline"><input type="radio" checked="checked" name="risk_level" @click="risk = 1">Bas </label>
-                <label class="radio-inline"><input type="radio" name="risk_level" @click="risk = 2">Moyen </label>
-                <label class="radio-inline"><input type="radio" name="risk_level" @click="risk = 3">Elevé </label>
-            </div>
+            <b-row align-h="center">
+                <b-col cols="8">
+                    <b-form-input id="range-2" v-model="risk" type="range" min="0" max="5" step="1"></b-form-input>
+                    <div class="mt-2">Risque: {{ risk }}</div>
+                </b-col>
+            </b-row>
 
-            <div class="button-group" style="margin-top:30px">
-                <a href="javascript:void(0);" accesskey="ligue1" class="small-button-inline" @click="flagClicked">🇫🇷</a>
-                <a href="javascript:void(0);" accesskey="premierLeague" class="small-button-inline" @click="flagClicked">🏴󠁧󠁢󠁥󠁮󠁧󠁿</a>
-                <a href="javascript:void(0);" accesskey="liga" class="small-button-inline" @click="flagClicked">🇪🇸</a>
-                <a href="javascript:void(0);" accesskey="bundesliga" class="small-button-inline" @click="flagClicked">🇩🇪</a>
-                <a href="javascript:void(0);" accesskey="serieA" class="small-button-inline" @click="flagClicked">🇮🇹</a>
-            </div>
-            <a href="javascript:void(0);" @click="showModal = true" class="button">Faire mes paris</a>
+            <b-row align-h="center">
+                <b-col cols="10">
+                    <div class="button-group" style="margin-top:20px">
+                    <a href="javascript:void(0);" accesskey="ligue1" class="small-button-inline" @click="flagClicked">🇫🇷</a>
+                    <a href="javascript:void(0);" accesskey="premierLeague" class="small-button-inline" @click="flagClicked">🏴󠁧󠁢󠁥󠁮󠁧󠁿</a>
+                    <a href="javascript:void(0);" accesskey="liga" class="small-button-inline" @click="flagClicked">🇪🇸</a>
+                    <a href="javascript:void(0);" accesskey="bundesliga" class="small-button-inline" @click="flagClicked">🇩🇪</a>
+                    <a href="javascript:void(0);" accesskey="serieA" class="small-button-inline" @click="flagClicked">🇮🇹</a>
+                    </div>
+                </b-col>
+            </b-row>
+            <b-row align-h="center">
+                <b-col cols="10">
+                    <a href="javascript:void(0);" @click="showModal = true" class="button">Faire mes paris</a>
+                </b-col>
+            </b-row>
         </div>
     </div>
 </template>
@@ -59,8 +71,8 @@
                     "bundesliga": true,
                     "serieA": true
                 },
-                risk: 1,
-                bet_amount: 10
+                risk: 0,
+                bet_amount: 10,
             }
         },  
         methods: {
