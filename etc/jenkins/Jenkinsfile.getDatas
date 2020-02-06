@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/PLP_ML/PipelineGetRawData.ipynb'
                 sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/PLP_ML/PipelineDeRrrrafinnage.ipynb'
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/PLP_ML/ML.ipynb'
             }
         }
     }

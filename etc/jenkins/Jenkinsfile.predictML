@@ -6,14 +6,9 @@ pipeline {
                 sh 'pip install --upgrade pip  && pip install -r etc/jenkins/requirements_jenkins.txt'
             }
         }
-        stage('train ML') {
+        stage('get odss') {
             steps {
-                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/PLP_ML/ML.ipynb'
-            }
-        }
-        stage('predict ML') {
-            steps {
-                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/PLP_ML/MLPredict.ipynb'
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/odds.ipynb'
             }
         }
     }
