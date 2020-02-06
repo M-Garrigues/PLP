@@ -1,8 +1,9 @@
 
 :root {
-	--background_color:#3D3D3D;
+	--background_color: rgb(242, 243, 245);
 	--main_color:white;
 	--secondary_color:blue;
+	--menu-color:rgb(52, 58, 64);
 }
 
 
@@ -252,7 +253,6 @@ ul.style2 li
 {
 	border-top: solid 1px #E5E5E5;
 	padding: 0.80em 0 0.80em 0;
-	font-family: 0.80em;
 }
 
 ul.style2 li:before
@@ -523,7 +523,7 @@ ul.contact li a.icon-rss:before
 	height: 0;
 	border-left: 60px solid transparent;
 	border-right: 60px solid transparent;
-	border-bottom: 30px solid var(--background_color);
+	border-bottom: 30px solid var(--menu-color);
 }
 
 /*********************************************************************************/
@@ -1046,6 +1046,7 @@ ul.contact li a.icon-rss:before
 	overflow: hidden;
 	padding: 7em 0em;
 	color: rgba(255,255,255,0.5);
+	background-color: var(--menu-color);
 }
 
 

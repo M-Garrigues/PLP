@@ -95,8 +95,6 @@ services:
     depends_on:
       - plp_mongodb
       - plp_reverse_proxy
-
-
 volumes:
   mongodata:
     external: true
