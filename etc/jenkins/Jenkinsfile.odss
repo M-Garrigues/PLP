@@ -1,0 +1,15 @@
+pipeline {
+    agent { docker { image 'python:3.7.2' } }
+    stages {
+        stage('build env') {
+            steps {
+                sh 'pip install --upgrade pip  && pip install -r etc/jenkins/requirements_jenkins.txt'
+            }
+        }
+        stage('get odss') {
+            steps {
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/odds.ipynb'
+            }
+        }
+    }
+}
