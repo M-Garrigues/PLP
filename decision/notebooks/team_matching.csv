@@ -1,0 +1,260 @@
+,football.co.uk,id
+54,Nantes,nantes
+57,Lille,lille
+60,Reims,reims
+62,Bastia,bastia
+64,Evian Thonon Gaillard,evian_thonon_gaillard
+65,Guingamp,guingamp
+66,Lyon,lyon
+67,Montpellier,montpellier
+68,Nice,nice
+69,St Etienne,st_etienne
+71,Lorient,lorient
+72,Metz,metz
+73,Monaco,monaco
+75,Toulouse,toulouse
+76,Bordeaux,bordeaux
+77,Lens,lens
+78,Marseille,marseille
+82,Caen,caen
+85,Rennes,rennes
+88,Paris SG,paris_sg
+386,Troyes,troyes
+391,Angers,angers
+401,Ajaccio GFCO,ajaccio_gfco
+765,Dijon,dijon
+769,Nancy,nancy
+1153,Amiens,amiens
+1160,Strasbourg,strasbourg
+1538,Nimes,nimes
+1904,Brest,brest
+2188,Valenciennes,valenciennes
+2192,Auxerre,auxerre
+2195,Creteil,creteil
+2196,Laval,laval
+2197,Niort,niort
+2198,Sochaux,sochaux
+2200,Le Havre,le_havre
+2202,Ajaccio,ajaccio
+2204,Arles,arles
+2208,Orleans,orleans
+2213,Chateauroux,chateauroux
+2218,Tours,tours
+2220,Clermont,clermont
+2513,Bourg Peronnas,bourg_peronnas
+2518,Red Star,red_star
+2580,Paris FC,paris_fc
+3289,Quevilly Rouen,quevilly_rouen
+3668,Beziers,beziers
+3674,Grenoble,grenoble
+4032,Chambly,chambly
+4037,Rodez,rodez
+4039,Le Mans,le_mans
+4308,Freiburg,freiburg
+4314,Hamburg,hamburg
+4315,Hertha,hertha
+4316,Bayern Munich,bayern_munich
+4317,Dortmund,dortmund
+4318,Ein Frankfurt,ein_frankfurt
+4319,Hoffenheim,hoffenheim
+4321,Werder Bremen,werder_bremen
+4322,M'gladbach,m'gladbach
+4323,Wolfsburg,wolfsburg
+4325,FC Koln,fc_koln
+4327,Hannover,hannover
+4328,Mainz,mainz
+4329,Schalke 04,schalke_04
+4330,Stuttgart,stuttgart
+4332,Paderborn,paderborn
+4334,Augsburg,augsburg
+4339,Leverkusen,leverkusen
+4569,Darmstadt,darmstadt
+4583,Ingolstadt,ingolstadt
+4887,RB Leipzig,rb_leipzig
+5486,Fortuna Dusseldorf,fortuna_dusseldorf
+5499,Nurnberg,nurnberg
+5799,Union Berlin,union_berlin
+6025,Greuther Furth,greuther_furth
+6027,Sandhausen,sandhausen
+6028,St Pauli,st_pauli
+6030,Heidenheim,heidenheim
+6031,Kaiserslautern,kaiserslautern
+6033,Bochum,bochum
+6034,Braunschweig,braunschweig
+6035,Erzgebirge Aue,erzgebirge_aue
+6036,Munich 1860,munich_1860
+6037,Karlsruhe,karlsruhe
+6040,Frankfurt FSV,frankfurt_fsv
+6043,Aalen,aalen
+6277,Duisburg,duisburg
+6286,Bielefeld,bielefeld
+6585,Dresden,dresden
+6612,Wurzburger Kickers,wurzburger_kickers
+6894,Holstein Kiel,holstein_kiel
+6904,Regensburg,regensburg
+7201,Magdeburg,magdeburg
+7504,Osnabruck,osnabruck
+7508,Wehen,wehen
+7740,Sociedad,sociedad
+7741,Getafe,getafe
+7742,Almeria,almeria
+7743,Eibar,eibar
+7744,Malaga,malaga
+7745,Valencia,valencia
+7746,Vallecano,vallecano
+7747,Celta,celta
+7748,Espanol,espanol
+7749,Real Madrid,real_madrid
+7750,Sevilla,sevilla
+7751,Granada,granada
+7752,Ath Bilbao,ath_bilbao
+7753,Barcelona,barcelona
+7754,Cordoba,cordoba
+7755,Levante,levante
+7756,Ath Madrid,ath_madrid
+7757,Elche,elche
+7758,La Coruna,la_coruna
+7759,Villarreal,villarreal
+8067,Betis,betis
+8069,Sp Gijon,sp_gijon
+8078,Las Palmas,las_palmas
+8454,Leganes,leganes
+8455,Osasuna,osasuna
+8457,Alaves,alaves
+8824,Girona,girona
+9215,Valladolid,valladolid
+9230,Huesca,huesca
+9584,Mallorca,mallorca
+9866,Ponferradina,ponferradina
+9868,Barcelona B,barcelona_b
+9873,Mirandes,mirandes
+9874,Recreativo,recreativo
+9875,Sabadell,sabadell
+9877,Zaragoza,zaragoza
+9878,Albacete,albacete
+9879,Alcorcon,alcorcon
+9881,Numancia,numancia
+9883,Santander,santander
+9884,Tenerife,tenerife
+9886,Llagostera,llagostera
+9887,Lugo,lugo
+10268,Gimnastic,gimnastic
+10271,Oviedo,oviedo
+10290,Ath Bilbao B,ath_bilbao_b
+10733,Sevilla B,sevilla_b
+10742,Cadiz,cadiz
+10745,UCAM Murcia,ucam_murcia
+10760,Reus Deportiu,reus_deportiu
+11187,Lorca,lorca
+11201,Leonesa,leonesa
+11660,Extremadura UD,extremadura_ud
+11670,Rayo Majadahonda,rayo_majadahonda
+12134,Fuenlabrada,fuenlabrada
+12454,Stoke,stoke
+12455,Aston Villa,aston_villa
+12456,Hull,hull
+12457,Leicester,leicester
+12458,Liverpool,liverpool
+12459,Sunderland,sunderland
+12460,Swansea,swansea
+12461,Chelsea,chelsea
+12462,Man United,man_united
+12463,Tottenham,tottenham
+12464,West Ham,west_ham
+12465,Arsenal,arsenal
+12466,Burnley,burnley
+12467,Crystal Palace,crystal_palace
+12468,Everton,everton
+12469,Man City,man_city
+12470,Newcastle,newcastle
+12471,Southampton,southampton
+12472,QPR,qpr
+12474,West Brom,west_brom
+12776,Bournemouth,bournemouth
+12781,Norwich,norwich
+12791,Watford,watford
+13161,Middlesbrough,middlesbrough
+13537,Brighton,brighton
+13553,Huddersfield,huddersfield
+13918,Fulham,fulham
+13922,Wolves,wolves
+13926,Cardiff,cardiff
+14313,Sheffield United,sheffield_united
+14616,Reading,reading
+14617,Nott'm Forest,nott'm_forest
+14618,Birmingham,birmingham
+14619,Blackpool,blackpool
+14620,Bolton,bolton
+14622,Brentford,brentford
+14624,Charlton,charlton
+14626,Ipswich,ipswich
+14628,Blackburn,blackburn
+14631,Derby,derby
+14633,Leeds,leeds
+14635,Millwall,millwall
+14637,Rotherham,rotherham
+14638,Sheffield Weds,sheffield_weds
+14641,Wigan,wigan
+15110,Preston,preston
+15111,Bristol City,bristol_city
+15118,Milton Keynes Dons,milton_keynes_dons
+15665,Barnsley,barnsley
+15667,Burton,burton
+17307,Luton,luton
+17723,Napoli,napoli
+17724,Parma,parma
+17725,Sampdoria,sampdoria
+17726,Udinese,udinese
+17728,Sassuolo,sassuolo
+17729,Atalanta,atalanta
+17730,Cagliari,cagliari
+17731,Fiorentina,fiorentina
+17732,Inter,inter
+17733,Palermo,palermo
+17734,Torino,torino
+17735,Verona,verona
+17736,Genoa,genoa
+17737,Empoli,empoli
+17740,Cesena,cesena
+17741,Chievo,chievo
+17742,Juventus,juventus
+17743,Lazio,lazio
+17744,Milan,milan
+17754,Roma,roma
+18052,Frosinone,frosinone
+18058,Bologna,bologna
+18061,Carpi,carpi
+18438,Pescara,pescara
+18442,Crotone,crotone
+18819,Benevento,benevento
+18827,Spal,spal
+19586,Lecce,lecce
+19593,Brescia,brescia
+19841,Ternana,ternana
+19843,Vicenza,vicenza
+19844,Avellino,avellino
+19850,Pro Vercelli,pro_vercelli
+19852,Virtus Entella,virtus_entella
+19854,Virtus Lanciano,virtus_lanciano
+19855,Livorno,livorno
+19856,Bari,bari
+19859,Cittadella,cittadella
+19862,Spezia,spezia
+19863,Trapani,trapani
+19866,Modena,modena
+19869,Catania,catania
+19871,Latina,latina
+19873,Perugia,perugia
+19875,Varese,varese
+20257,Novara,novara
+20266,Como,como
+20274,Ascoli,ascoli
+20303,Salernitana,salernitana
+20753,Pisa,pisa
+21191,Cremonese,cremonese
+21193,Foggia,foggia
+21211,Venezia,venezia
+21650,Cosenza,cosenza
+21674,Padova,padova
+21990,Pordenone,pordenone
+21998,Juve Stabia,juve_stabia
