@@ -6,7 +6,10 @@ WORKDIR /home/notebooks
 
 ADD requirements_notebooks.txt /app/
 
-# Installs, clean, and update   
+# Installs, clean, and update
+USER root
+RUN apt-get update
+RUN apt-get install -y python-pip
 RUN pip install -r /app/requirements_notebooks.txt
 
 # Run shell command for notebook on start 
