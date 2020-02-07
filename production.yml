@@ -59,3 +59,6 @@ services:
     depends_on:
       - plp_mongodb
     restart: on-failure
+    networks:
+      - internal
+      - proxy #temporary, need to find fix
