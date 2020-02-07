@@ -1,39 +1,21 @@
 <template>
-    <transition name="modal">
-    <div class="modal-mask" @click="$emit('close')">
-        <div class="modal-wrapper">
-            <div class="modal-container">
-                <div class="modal-header">
-                    <slot name="header">
-                        <h3>Répartition des paris</h3>
-                    </slot>
-                </div>
+    <b-modal id="modal-tall" title="Paris sélectionnés" scrollable="true"
+             header-bg-variant="dark"
+             header-text-variant="light"
+             centered="true"
+             size="lg"
+             hide-footer="true">
 
-                <div class="modal-body">
-                    <slot name="body">
-                        <table style="width:90%">
-                            <tr>
-                                <th>Domicile</th>
-                                <th>Extérieur</th>
-                                <th>Victoire</th>
-                                <th>Paris</th>
-                            </tr>
-                            <Bet v-for="bet of sortedBets" :key="bet.ind" :bet="bet" :amount="(bet.credit*bet_amount).toFixed(2)"></Bet>
-                        </table>
-                    </slot>
-                </div>
-
-                <div class="modal-footer">
-                    <slot name="footer">
-                    <button class="button" @click="$emit('close')">
-                            OK
-                        </button>
-                    </slot>
-                </div>
-            </div>
-        </div>
-    </div>
-    </transition>
+        <table style="width:100%">
+            <tr>
+                <th>Domicile</th>
+                <th>Extérieur</th>
+                <th>Victoire</th>
+                <th>Paris</th>
+            </tr>
+            <Bet v-for="bet of sortedBets" :key="bet.ind" :bet="bet" :amount="(bet.credit*bet_amount).toFixed(2)"></Bet>
+        </table>
+    </b-modal>
 </template>
 
 <script>
@@ -108,6 +90,10 @@
             lowRiskBets: function(){
                 return this.sortedBets.slice(0, 10);
             },
+
+            betsToPrint: function(){
+                
+            }
         }
     }
 

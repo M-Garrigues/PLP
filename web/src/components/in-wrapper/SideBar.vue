@@ -43,7 +43,7 @@
             </b-row>
             <b-row align-h="center">
                 <b-col cols="10">
-                    <a href="javascript:void(0);" @click="showModal = true" class="button">Faire mes paris</a>
+                    <a v-b-modal.modal-tall href="javascript:void(0);" @click="showModal = true" class="button">Faire mes paris</a>
                 </b-col>
             </b-row>
         </div>
