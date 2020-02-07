@@ -50,3 +50,11 @@ services:
       - traefik.http.routers.plp_api.rule=Host(`${PROD_API_PATH}`)
       #- traefik.http.routers.plp_api.tls.certresolver=leresolver
       - traefik.http.routers.plp_api.entrypoints=http,https
+
+
+  mongo-seed:
+    build: ./etc/mongo-seed
+    links:
+      - plp_mongodb
+    depends_on:
+      - plp_mongodb
