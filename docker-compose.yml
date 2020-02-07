@@ -95,29 +95,6 @@ services:
     depends_on:
       - plp_mongodb
       - plp_reverse_proxy
-
-  plp_jenkins:
-    restart: always
-    container_name: plp_jenkins
-    image: jenkins/jenkins:$TAG_JENKINS
-    volumes:
-      - /var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-    build:
-      context: ./etc/jenkins
-      dockerfile: Dockerfile
-      args:
-        TAG_JENKINS: $TAG_JENKINS
-    labels:
-      - traefik.enable=false
-    networks:
-      - internal
-    ports:
-      - 8080:8087
-      - 50000:50000
-    depends_on:
-      - plp_mongodb
-
 volumes:
   mongodata:
     external: true
