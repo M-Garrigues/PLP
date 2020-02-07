@@ -23,10 +23,10 @@ services:
 
       - traefik.http.routers.traefik.rule=Host(`${PROD_TRAEFIK_PATH}`)
       - traefik.http.routers.traefik.tls.certresolver=leresolver
-      - traefik.http.routers.traefik.entrypoints=https
+      - traefik.http.routers.traefik.entrypoints=https, http
 
       # middleware redirect
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      #- "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
 
 
 
@@ -40,7 +40,7 @@ services:
 
       - traefik.http.routers.plp_web.rule=Host(`${PROD_PLP_PATH}`)
       - traefik.http.routers.plp_web.tls.certresolver=leresolver
-      - traefik.http.routers.plp_web.entrypoints=https
+      - traefik.http.routers.plp_web.entrypoints=https, http
 
   plp_api:
     container_name: plp_api_prod
@@ -49,4 +49,4 @@ services:
 
       - traefik.http.routers.plp_api.rule=Host(`${PROD_API_PATH}`)
       #- traefik.http.routers.plp_api.tls.certresolver=leresolver
-      - traefik.http.routers.plp_api.entrypoints=http
+      - traefik.http.routers.plp_api.entrypoints=http,https
