@@ -1,46 +1,33 @@
 <template>
-    <div id="match-list">
+    <div id="match-list container">
         <div id="header">
-            <div class="title">
-                <h2>Match List</h2>
+            <div class="title" style="text-align: center">
+                <h3>Liste des matchs</h3>
             </div>
         </div>
-        <div v-if="loading">
-            <h1>Loading ...</h1>
+        <div v-if="loading" style="text-align: center">
+            <div>
+                <b-spinner style="width: 3rem; height: 3rem;" variant="warning" label="Chargement..."></b-spinner>
+            </div>
         </div>
-        <Match v-for="match of filteredMatches" :key="match.id" :H_team="match.H_team" :A_team="match.A_team" :H_cote="match.H_cote"
-               :H_ind="match.H_ind" :D_cote="match.D_cote" :D_ind="match.D_ind" :A_cote="match.A_cote" :A_ind="match.A_ind" :league="match.league"></Match>
+        <b-row>
+            <Match v-for="match of filteredMatches" :key="match.id" :H_team="match.H_team" :A_team="match.A_team" :H_cote="match.H_cote"
+               :H_ind="match.H_ind" :D_cote="match.D_cote" :D_ind="match.D_ind" :A_cote="match.A_cote" :A_ind="match.A_ind" :league="match.league"
+                :date="match.date" :hour="match.hour"></Match>
+        </b-row>
     </div>
 </template>
 
 <script>
-    import Match from "./Match";
-    import MatchService from "./MatchService";
-
+    import  Match from "./Match";
     export default {
         name: "MatchList",
         components: {Match},
         props: [
-            'leagueFilter'
-        ],
-        data() {
-            return {
-                loading: true,
-                matches: []
-            }
-        },
-        methods: {},
-        computed: {
-            filteredMatches: function(){
-                if (this.loading) return[];
-                else
-                    return this.matches.filter(match => (match.league === this.leagueFilter || this.leagueFilter === ""));
-            }
-        },
-        async mounted() {
-            this.matches = await MatchService.getMatches();
-            this.loading = false;
-        }
+            'leagueFilter',
+            'filteredMatches',
+            'loading'
+        ]
     }
 </script>
 

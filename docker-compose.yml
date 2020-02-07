@@ -118,7 +118,6 @@ services:
     depends_on:
       - plp_mongodb
 
-
 volumes:
   mongodata:
     external: true

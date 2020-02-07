@@ -1,8 +1,9 @@
 
 :root {
-	--background_color:#3D3D3D;
+	--background_color: rgb(242, 243, 245);
 	--main_color:white;
 	--secondary_color:blue;
+	--menu-color:rgb(52, 58, 64);
 }
 
 
@@ -66,6 +67,88 @@ a:hover
 	margin: 0 auto;
 	width: 1200px;
 }
+
+/*********************************************************************************/
+/* MODAL Style                                                                   */
+/*********************************************************************************/
+
+
+.special_modal{
+	height: 100%;
+}
+
+.modal-mask {
+	position: fixed;
+	z-index: 9998;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .5);
+	display: table;
+	transition: opacity .4s ease-in-out;
+}
+
+.modal-wrapper {
+	display: table-cell;
+	vertical-align: middle;
+
+}
+
+.modal-container {
+	
+	width: 600px;
+
+	margin: 0px auto;
+	padding: 20px 30px;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+	transition: all .4s ease-in-out;
+	font-family: Helvetica, Arial, sans-serif;
+
+}
+
+.modal-header h3 {
+	margin-top: 0;
+	color: #42b983;
+}
+
+.modal-body {
+	margin: 20px 0;
+	overflow-y: auto;
+	height: 300px;
+}
+
+.modal-default-button {
+	float: bottom;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+	opacity: 0;
+}
+
+.modal-leave-active {
+	opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+
+
 
 /*********************************************************************************/
 /* Image Style                                                                   */
@@ -172,7 +255,6 @@ ul.style2 li
 {
 	border-top: solid 1px #E5E5E5;
 	padding: 0.80em 0 0.80em 0;
-	font-family: 0.80em;
 }
 
 ul.style2 li:before
@@ -328,6 +410,9 @@ ul.contact li a.icon-rss:before
 
 .button:hover
 {
+	border: solid 2px #323232;
+	background: #ffffff;
+	color: #FFC000;
 }
 
 .button:active
@@ -341,13 +426,66 @@ ul.contact li a.icon-rss:before
 	font-weight: 900;
 }
 
+
+.small-button-inline:hover{
+	border: solid 1px #323232;
+}
+
+.small-button-inline
+{
+	display: inline-block;
+	padding: 0.5em 0.7em;
+	background: #FFC000;
+	-moz-transition: opacity 0.25s ease-in-out;
+	-webkit-transition: opacity 0.25s ease-in-out;
+	-o-transition: opacity 0.25s ease-in-out;
+	-ms-transition: opacity 0.25s ease-in-out;
+	transition: opacity 0.25s ease-in-out;
+	letter-spacing: 0.20em;
+	text-decoration: none;
+	font-weight: 300;
+	font-size: large;
+	color: #FFF;
+	margin-right: 0.2em;
+	border: solid 1px transparent;
+}
+
+.small-button-inline-toggled:hover{
+	border: solid 1px #FFC000;
+}
+
+.small-button-inline-toggled
+{
+	display: inline-block;
+	padding: 0.5em 0.7em;
+	background: #FFF;
+	-moz-transition: opacity 0.25s ease-in-out;
+	-webkit-transition: opacity 0.25s ease-in-out;
+	-o-transition: opacity 0.25s ease-in-out;
+	-ms-transition: opacity 0.25s ease-in-out;
+	transition: opacity 0.25s ease-in-out;
+	letter-spacing: 0.20em;
+	text-decoration: none;
+	font-weight: 300;
+	font-size: large;
+	color: #FFF;
+	margin-right: 0.2em;
+	border: solid 1px gray;
+}
+
+.button-group{
+
+	margin-bottom: 10px;
+	text-align: center;
+	align-items: center;
+}
 /*********************************************************************************/
 /* Heading Titles                                                                */
 /*********************************************************************************/
 
 	.title
 {
-	margin-bottom: 3em;
+	margin-bottom: 2em;
 }
 
 .title h2
@@ -387,7 +525,7 @@ ul.contact li a.icon-rss:before
 	height: 0;
 	border-left: 60px solid transparent;
 	border-right: 60px solid transparent;
-	border-bottom: 30px solid var(--background_color);
+	border-bottom: 30px solid var(--menu-color);
 }
 
 /*********************************************************************************/
@@ -460,7 +598,7 @@ ul.contact li a.icon-rss:before
 	{
 		display: inline-block;
 		margin-left: 0.50em;
-		padding: 2em 1.5em 1em 1.5em;
+		padding: 1em 1.5em 0em 1.5em;
 		letter-spacing: 0.20em;
 		text-decoration: none;
 		font-size: 0.90em;
@@ -539,14 +677,13 @@ ul.contact li a.icon-rss:before
 #wrapper
 {
 	background: #f2f3f5;
-	padding: 5em 0;
-	padding-bottom: 1500px;
+	padding: 2em 0;
 }
 
 #page
 {
 	overflow: hidden;
-	padding: 6em 0em;
+	padding: 2em 0em;
 	border-bottom: 2px solid #E3E3E3;
 	text-align: center;
 }
@@ -569,16 +706,12 @@ ul.contact li a.icon-rss:before
 /* Sidebar                                                                       */
 /*********************************************************************************/
 
+
+
 	#match-list
 	{
-		background-color:var(--main_color);
 		float: right;
-		width: 65%;
-		margin-right: 3%;
-		box-shadow: none !important;
-		border: 1px solid rgba(0,0,0,0.12);
 		position: relative;
-		border-radius: 8px;
 		box-sizing: inherit;
 		direction: ltr;
 		line-height: 1.5;
@@ -586,14 +719,13 @@ ul.contact li a.icon-rss:before
 
 		height: auto;
 		text-align: center;
-		padding: 10px;
+		margin-top: 4em;
 	}
 	#sidebar
 {
 		background-color:var(--main_color);
 		float: left;
-		width: 25%;
-		margin-left: 3%;
+		width: 100%;
 		box-shadow: none !important;
 		border: 1px solid rgba(0,0,0,0.12);
 		position: relative;
@@ -605,7 +737,9 @@ ul.contact li a.icon-rss:before
 
 		height: auto;
 		text-align: center;
-		padding: 10px;
+		padding-top: 1em;
+		margin-bottom: 1em;
+		padding-bottom: 1em;
 }
 
 #stwo-col
@@ -910,6 +1044,7 @@ ul.contact li a.icon-rss:before
 	overflow: hidden;
 	padding: 7em 0em;
 	color: rgba(255,255,255,0.5);
+	background-color: var(--menu-color);
 }
 
 
