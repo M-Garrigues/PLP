@@ -5,7 +5,7 @@
              centered="true"
              size="lg"
              hide-footer="true">
-
+        <b-table striped hover :items="betsToPrint"></b-table>
         <table style="width:100%">
             <tr>
                 <th>Domicile</th>
@@ -91,8 +91,19 @@
                 return this.sortedBets.slice(0, 10);
             },
 
-            betsToPrint: function(){
-                
+            betsToPrint: function(sortedBets){
+
+                let ret = [];
+                sortedBets.forEach(bet => {
+                    ret.push({
+                        Domicile: bet.teamH,
+                        Exterieur: bet.teamA,
+                        Resultat: bet.side,
+                        Mise:  (bet.credit*this.bet_amount).toFixed(2).toString()+"€"
+                    })
+                });
+
+                return ret
             }
         }
     }

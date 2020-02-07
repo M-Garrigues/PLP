@@ -35,10 +35,12 @@
             filteredMatches: function(){
                 const filtered =  this.matches.filter(match => (match.league === this.leagueFilter || this.leagueFilter === ""));
                 if (this.loading) return[];
-                else
-                return filtered.sort(function(b1, b2) {
+                else{
+                    return filtered.sort(function(b1, b2) {
                         return new Date(b1.rawdate).getTime() - new Date(b2.rawdate).getTime();
-                    })
+                    });
+                }
+
             }
         },
         async mounted() {
