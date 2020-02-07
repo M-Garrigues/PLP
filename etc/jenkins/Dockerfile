@@ -1,6 +1,6 @@
 # Set the base image
 ARG TAG_JENKINS
-FROM jenkins/jenkins:alpine
+FROM jenkins/jenkins:$TAG_JENKINS
 
 # Set working directory
 WORKDIR /home/jenkins
@@ -26,7 +26,7 @@ RUN apk add --update \
         unixodbc-dev
 
 # Install dependencies
-RUN pip3 install --upgrade setuptools && pip3 install ez_setup && easy_install -U setuptools
+RUN pip3 install ez_setup && easy_install -U setuptools
 ADD requirements_jenkins.txt /app/
 RUN pip3 install -r /app/requirements_jenkins.txt
 CMD python --version && jupyter --version
