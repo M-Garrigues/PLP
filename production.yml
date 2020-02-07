@@ -58,3 +58,4 @@ services:
       - plp_mongodb
     depends_on:
       - plp_mongodb
+    restart: on-failure
