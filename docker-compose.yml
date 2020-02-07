@@ -46,7 +46,6 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.services.plp_web.loadbalancer.server.port=8080
-      
     networks:
       - internal
     depends_on:
@@ -70,6 +69,8 @@ services:
       - 27017:27017 #temporary, need to find fix
     depends_on:
       - plp_reverse_proxy
+    labels:
+      - traefik.enable=false
 
 
   plp_api:
@@ -92,7 +93,7 @@ services:
     depends_on:
       - plp_mongodb
       - plp_reverse_proxy
-      
+
 volumes:
   mongodata:
     external: true

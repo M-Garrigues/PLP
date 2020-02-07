@@ -47,6 +47,6 @@ services:
     image: im_plp_api_prod
     labels:
 
-      - traefik.http.routers.plp_web.rule=Host(`${PROD_API_PATH}`)
-      - traefik.http.routers.plp_web.tls.certresolver=leresolver
-      - traefik.http.routers.plp_web.entrypoints=https
+      - traefik.http.routers.plp_api.rule=Host(`${PROD_API_PATH}`)
+      - traefik.http.routers.plp_api.tls.certresolver=leresolver
+      - traefik.http.routers.plp_api.entrypoints=https
