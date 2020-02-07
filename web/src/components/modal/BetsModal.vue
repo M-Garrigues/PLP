@@ -1,28 +1,18 @@
 <template>
-    <b-modal id="modal-tall" title="Paris sélectionnés" scrollable="true"
+    <b-modal id="modal-tall" title="Paris sélectionnés"
              header-bg-variant="dark"
              header-text-variant="light"
-             centered="true"
-             size="lg"
-             hide-footer="true">
-        <b-table striped hover :items="betsToPrint"></b-table>
-        <table style="width:100%">
-            <tr>
-                <th>Domicile</th>
-                <th>Extérieur</th>
-                <th>Victoire</th>
-                <th>Paris</th>
-            </tr>
-            <Bet v-for="bet of sortedBets" :key="bet.ind" :bet="bet" :amount="(bet.credit*bet_amount).toFixed(2)"></Bet>
-        </table>
+             :centered=true
+             size="xl"
+             :hide-footer=true
+             modal-class="special_modal">
+        <b-table hover :items="betsToPrint"></b-table>
     </b-modal>
 </template>
 
 <script>
-    import Bet from "./Bet";
     export default {
         name: "BetsModal",
-        components: {Bet},
         props: [
             "risk",
             "matches",
@@ -91,15 +81,31 @@
                 return this.sortedBets.slice(0, 10);
             },
 
-            betsToPrint: function(sortedBets){
+            betsToPrint: function(){
 
                 let ret = [];
-                sortedBets.forEach(bet => {
+                var var_dom = "";
+                var var_ext = "";
+                this.sortedBets.forEach(bet => {
+
+                    if(bet.side === "A"){
+                        var_dom = "";
+                        var_ext = "success";
+                    }
+                    else if(bet.side === "H"){
+                        var_dom = "success";
+                        var_ext = "";
+                    }
+                    else{
+                        var_dom = "warning";
+                        var_ext = "warning";
+                    }
+
                     ret.push({
                         Domicile: bet.teamH,
-                        Exterieur: bet.teamA,
-                        Resultat: bet.side,
-                        Mise:  (bet.credit*this.bet_amount).toFixed(2).toString()+"€"
+                        Extérieur: bet.teamA,
+                        Mise:  (bet.credit*this.bet_amount).toFixed(2).toString()+"€",
+                        _cellVariants: { "Domicile": var_dom, "Extérieur": var_ext}
                     })
                 });
 
