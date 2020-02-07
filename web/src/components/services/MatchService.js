@@ -4,7 +4,7 @@ const MatchService = {
     getMatches: async () => {
         axios.defaults.baseURL = 'https://plp.mgarrigues.fr';
         return await axios
-            .get('https://plp.mgarrigues.fr/api_v1/matches')
+            .get('https://plp.mgarrigues.fr/api/matches')
             .then(response => response.data)
             .then(response => {
                 return response.map(match => ({
