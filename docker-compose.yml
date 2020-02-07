@@ -63,9 +63,6 @@ services:
     volumes:
       - mongodata:/data/db
     command: mongod --logpath=/dev/null # --quiet
-    #labels:
-      #- traefik.enable=true
-      #- traefik.tcp.services.plp_mongodb.loadbalancer.server.port=27017
     networks:
       - internal
       - proxy #temporary, need to find fix
@@ -95,6 +92,7 @@ services:
     depends_on:
       - plp_mongodb
       - plp_reverse_proxy
+      
 volumes:
   mongodata:
     external: true

@@ -41,3 +41,12 @@ services:
       - traefik.http.routers.plp_web.rule=Host(`${PROD_PLP_PATH}`)
       - traefik.http.routers.plp_web.tls.certresolver=leresolver
       - traefik.http.routers.plp_web.entrypoints=https
+
+  plp_api:
+    container_name: plp_api_prod
+    image: im_plp_api_prod
+    labels:
+
+      - traefik.http.routers.plp_web.rule=Host(`${PROD_API_PATH}`)
+      - traefik.http.routers.plp_web.tls.certresolver=leresolver
+      - traefik.http.routers.plp_web.entrypoints=https
