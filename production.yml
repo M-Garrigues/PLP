@@ -16,9 +16,9 @@ services:
     labels:
 
       # global redirect to https
-      #- "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"
-      #- "traefik.http.routers.redirs.entrypoints=http"
-      #- "traefik.http.routers.redirs.middlewares=redirect-to-https"
+      - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"
+      - "traefik.http.routers.redirs.entrypoints=http"
+      - "traefik.http.routers.redirs.middlewares=redirect-to-https"
 
 
       - traefik.http.routers.traefik.rule=Host(`${PROD_TRAEFIK_PATH}`)
@@ -26,7 +26,7 @@ services:
       - traefik.http.routers.traefik.entrypoints=https, http
 
       # middleware redirect
-      #- "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
 
 
 
@@ -48,7 +48,7 @@ services:
     labels:
 
       - traefik.http.routers.plp_api.rule=Host(`${PROD_API_PATH}`)
-      #- traefik.http.routers.plp_api.tls.certresolver=leresolver
+      - traefik.http.routers.plp_api.tls.certresolver=leresolver
       - traefik.http.routers.plp_api.entrypoints=http,https
 
 
