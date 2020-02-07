@@ -2,9 +2,9 @@ import axios from 'axios'
 
 const MatchService = {
     getMatches: async () => {
-        axios.defaults.baseURL = 'https://api.mgarrigues.fr';
+        axios.defaults.baseURL = 'https://plp.mgarrigues.fr';
         return await axios
-            .get('https://api.mgarrigues.fr/matches')
+            .get('https://plp.mgarrigues.fr/api_v1/matches')
             .then(response => response.data)
             .then(response => {
                 return response.map(match => ({
