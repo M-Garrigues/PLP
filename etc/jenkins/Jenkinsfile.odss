@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'python:3.7.2'
-            args '-p 8081:80'
+            args '--network internal'
         } }
     stages {
         stage('Buid env') {
