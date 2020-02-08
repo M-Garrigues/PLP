@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'python:3.7.2'
-            args '--network internal'
+            args '-p 8080:80'
         } }
     stages {
         stage('Buid env') {
@@ -10,12 +10,15 @@ pipeline {
                 sh 'pip install --upgrade pip  && pip install -r etc/jenkins/requirements_jenkins.txt'
             }
         }
-        stage('get datas') {
+        stage('Get datas') {
             steps {
                 sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/PipelineGetRawData.ipynb'
                 sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/PipelineDeRrrrafinnage.ipynb'
-                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/ML.ipynb'
+
             }
+        }
+        stage('ML') {
+            sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/ML.ipynb'
         }
     }
 }
