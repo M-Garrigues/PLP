@@ -1,31 +1,10 @@
-def withDockerNetwork(Closure inner) {
-    try {
-        networkId = UUID.randomUUID().toString()
-        sh "docker network create ${networkId}"
-        inner.call(networkId)
-    } finally {
-        sh "docker network rm ${networkId}"
-    }
-}
-
 pipeline {
-    agent {
-        docker {
-            image 'python:3.7.2'
-            label 'pythonDocker'
-        } }
+    agent { docker {image 'python:3.7.2'} }
     stages {
         stage('Buid env') {
             steps {
                 script {
-                    def database = docker.image('plp_mongodb')
-                    def python = docker.image('pythonDocker')
-                    withDockerNetwork { n ->
-                        database.withRun("--network ${n} --name database")
-                                { c ->
-                                    python.inside("--network ${n}")
-                        }
-                    }
+                    sh 'docker ps -a'
                 }
                 sh 'pip install --upgrade pip  && pip install -r etc/jenkins/requirements_jenkins.txt'
             }
