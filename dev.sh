@@ -25,3 +25,5 @@ echo""
 echo "Traefik log :"
 docker logs plp_traefik_dev
 echo""
+
+./jenkins.sh
