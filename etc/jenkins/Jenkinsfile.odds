@@ -10,7 +10,7 @@ pipeline {
                 sh 'pip install --upgrade pip  && pip install -r etc/jenkins/requirements_jenkins.txt'
             }
         }
-        stage('get odss') {
+        stage('get odds') {
             steps {
                 sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/odds.ipynb'
             }

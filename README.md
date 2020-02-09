@@ -23,7 +23,7 @@ Initialisation :
 * Install recommended plugins (pipeline plugin necessary)
 
 Create two items :
-* Odss :
+* Odds :
     * Build triggers
         * Build Periodically : `H * * * *` _(every hour)_
     * Pipeline
