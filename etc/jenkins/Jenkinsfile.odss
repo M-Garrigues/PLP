@@ -1,12 +1,9 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.7.2'
-            args '--link plp_jenkins:plp_mongodb'
-        } }
+    agent any
     stages {
         stage('Buid env') {
             steps {
+                sh 'docker network ls'
                 sh 'pip install --upgrade pip  && pip install -r etc/jenkins/requirements_jenkins.txt'
             }
         }
