@@ -17,14 +17,12 @@ Run: `docker-compose -f docker-compose.yml -f production.yml up -d`
 
 #### Jenkins
 
-Run: `./jenkins.sh`
-
-Connect to Jenkins server with initial admin password in plp_jenkins:/var/jenkins_home/secrets/initialAdminPassword
-
-Install recommended plugins (pipeline plugin necessary)
+Initialisation :
+* Jenkins server at _plp_jenkins.IPAddress_ on port _8080_
+* Connect to Jenkins server with initial admin password in plp_jenkins:/var/jenkins_home/secrets/initialAdminPassword
+* Install recommended plugins (pipeline plugin necessary)
 
 Create two items :
-
 * Odss :
     * Build triggers
         * Build Periodically : `H * * * *` _(every hour)_
