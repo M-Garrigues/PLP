@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'python:3.7.2'
+            args '--network plp_internal'
         } }
     stages {
         stage('Buid env') {
@@ -17,7 +18,9 @@ pipeline {
             }
         }
         stage('ML') {
-            sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/ML.ipynb'
+            steps {
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/ML.ipynb'
+            }
         }
     }
 }
