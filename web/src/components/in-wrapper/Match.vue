@@ -70,7 +70,21 @@
         ],
         methods: {
             indicatorColor: function(indicator) {
-                return indicator < 4 ? "#00CED1" : "#fae614";
+                if (indicator < 0.1)
+                    return "#f0f0f0"
+                if (indicator < 10)
+                    return "#3AD1CA"
+                if (indicator < 20)
+                    return "#5BD8AF"
+                if (indicator < 30)
+                    return "#77DE95"
+                if (indicator < 40)
+                    return "#98E879"
+                if (indicator < 50)
+                    return "#BEEF55"
+                if (indicator < 60)
+                    return "#E2F834"
+                return "#fae614"
             },
         }
     }
