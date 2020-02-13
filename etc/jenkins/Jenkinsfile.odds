@@ -15,5 +15,10 @@ pipeline {
                 sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/odds.ipynb'
             }
         }
+        stage('indicator') {
+            steps {
+                sh 'jupyter nbconvert --execute --ExecutePreprocessor.enabled=True --ExecutePreprocessor.timeout=50000 decision/notebooks/indicator.ipynb'
+            }
+        }
     }
 }
