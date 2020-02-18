@@ -61,7 +61,6 @@ services:
     image: im_plp_pipelines
     volumes:
       - ./decision/notebooks:/home/notebooks
-      - ./pipelines:/home/pipelines
     labels:
       - traefik.enable=false
     networks:
@@ -69,13 +68,3 @@ services:
     depends_on:
       - plp_reverse_proxy
       - plp_api
-  #mongo-seed:
-  #  build: ./etc/mongo-seed
-  #  links:
-  #    - plp_mongodb
-  #  depends_on:
-  #    - plp_mongodb
-  #  restart: on-failure
-  #  networks:
-  #    - internal
-  #    - proxy #temporary, need to find fix
