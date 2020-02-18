@@ -94,16 +94,16 @@
                 else{
                     var indicators = [];
                     this.filteredMatches.forEach( match => {
-                        indicators.push(match.H_ind);
-                        indicators.push(match.D_ind);
-                        indicators.push(match.A_ind);
+                        if (match.H_ind > 0)
+                            indicators.push(match.H_ind);
+                        if (match.D_ind > 0)
+                            indicators.push(match.D_ind);
+                        if (match.A_ind > 0)
+                            indicators.push(match.A_ind);
                     });
-                    var sorted = indicators.sort(function(a, b) {
-                        return b - a;
-                    });
-                    sorted = sorted.slice(0, 10);
+                    let size = indicators.length
                     let sum = indicators.reduce((previous, current) => current += previous);
-                    let avg = sum / sorted.length;
+                    let avg = sum / size;
                     return avg.toFixed(1);
                 }
             }
