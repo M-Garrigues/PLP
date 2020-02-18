@@ -1,5 +1,5 @@
 # Set the base image
-FROM jupyter/base-notebook:python-3.7.3
+FROM python:3.7-alpine
 
 # Set working directory 
 WORKDIR /home/notebooks
