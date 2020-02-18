@@ -34,7 +34,7 @@
 
                 var indicators = [];
                 this.filteredMatches.forEach( match => {
-                    if (match.H_ind >= 0)
+                    if (match.H_ind >= 0 && (match.H_pred - 1/match.H_cote) >= 0)
                         indicators.push({ ind: match.H_ind,
                                     pred: match.H_pred,
                                     side: 'H',
@@ -42,7 +42,7 @@
                                     teamA: match.A_team,
                                     teamH : match.H_team,
                                     credit: 0});
-                    if (match.D_ind >= 0)
+                    if (match.D_ind >= 0 && (match.D_pred - 1/match.D_cote) >= 0)
                         indicators.push({ ind: match.D_ind,
                                     pred: match.D_pred,
                                     side: 'D',
@@ -50,7 +50,7 @@
                                     teamA: match.A_team,
                                     teamH : match.H_team,
                                     credit: 0});
-                    if (match.A_ind >= 0)
+                    if (match.A_ind >= 0 && (match.A_pred - 1/match.A_cote) >= 0)
                         indicators.push({ ind: match.A_ind,
                                     pred: match.A_pred,
                                     side: 'A',
@@ -67,7 +67,11 @@
                 var tot = 0;
 
                 sliced_indicators.forEach(bet => {
-                    bet.credit = bet.pred * bet.pred * (bet.pred - 1/bet.odd);
+                    let ecart_zero = 0.3
+                    let esperance = bet.pred * (bet.odd - 1) - (1 - bet.pred) * (-1);
+                    let variance = bet.pred * (bet.odd - 1 - esperance) ** 2 + (1 - bet.pred) * (-1 - esperance) ** 2 + ecart_zero;
+                    bet.credit = esperance/variance**(1 + (5-this.risk)/5);
+
                     tot += bet.credit;
                 });
                 sliced_indicators.forEach(bet => bet.credit = bet.credit / tot);

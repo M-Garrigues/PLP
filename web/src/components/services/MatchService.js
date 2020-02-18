@@ -2,9 +2,9 @@ import axios from 'axios'
 
 const MatchService = {
     getMatches: async () => {
-        axios.defaults.baseURL = 'http://plp.localhost';
+        axios.defaults.baseURL = 'https://api.mgarrigues.fr';
         return await axios
-            .get('http://api.localhost/matches')
+            .get('https://api.mgarrigues.fr/matches')
             .then(response => response.data)
             .then(response => {
                 return response.map(match => ({
@@ -15,9 +15,9 @@ const MatchService = {
                     D_cote: match.odd_D,
                     A_cote: match.odd_A,
                     league: match.league,
-                    H_ind: match.RI_H,
-                    A_ind: match.RI_A,
-                    D_ind: match.RI_D,
+                    H_ind: 20 * match.RI_H,
+                    A_ind: 20 * match.RI_A,
+                    D_ind: 20 * match.RI_D,
                     H_pred: match.pred_H,
                     D_pred: match.pred_D,
                     A_pred: match.pred_A,
