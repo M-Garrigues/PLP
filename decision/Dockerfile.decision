@@ -3,14 +3,27 @@ FROM jupyter/base-notebook:python-3.7.3
 
 # Set working directory 
 WORKDIR /home/notebooks
+USER root
 
 ADD requirements_notebooks.txt /app/
+COPY ./pipelines /home/pipelines
+RUN chmod -R 755 /home/pipelines
+
+
+RUN apt-get update
+
+# Install crontab
+RUN dpkg -l cron
+RUN apt-get install cron
+
+# Set crontab file
+RUN /usr/bin/crontab /home/pipelines/crontab.txt
 
 # Installs, clean, and update
-USER root
-RUN apt-get update
+
 RUN apt-get install -y python-pip
 RUN pip install -r /app/requirements_notebooks.txt
 
-# Run shell command for notebook on start 
-CMD jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root
+
+# Run shell command to start CRON
+CMD ["/home/pipelines/launch_pipelines.sh"]
