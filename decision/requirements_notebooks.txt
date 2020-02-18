@@ -1,3 +1,4 @@
+tensorflow==2.O
 seaborn
 mapboxgl
 lxml
@@ -7,4 +8,3 @@ pymongo
 ipykernel<=5.1.1
 jupyter
 pandas
-tensorflow

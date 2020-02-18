@@ -10,12 +10,11 @@ ADD requirements_notebooks.txt /app/
 COPY ./pipelines /home/pipelines
 RUN chmod -R 755 /home/pipelines
 
-
 # Set crontab file
 RUN /usr/bin/crontab /home/pipelines/crontab.txt
 
 # Installs, clean, and update
-RUN pip install --no-cache-dir -r /app/requirements_notebooks.txt
+RUN pip3 install --no-cache-dir -r /app/requirements_notebooks.txt
 
 
 # Run shell command to start CRON
