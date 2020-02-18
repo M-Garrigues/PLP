@@ -14,8 +14,6 @@ RUN chmod -R 755 /home/pipelines
 RUN /usr/bin/crontab /home/pipelines/crontab.txt
 
 # Installs, clean, and update
-
-RUN apt-get install -y python-pip
 RUN pip install --no-cache-dir -r /app/requirements_notebooks.txt
 
 
