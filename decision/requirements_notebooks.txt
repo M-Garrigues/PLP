@@ -1,4 +1,4 @@
-tensorflow==2.O
+tensorflow
 seaborn
 mapboxgl
 lxml
