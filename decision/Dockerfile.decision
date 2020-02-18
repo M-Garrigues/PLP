@@ -4,6 +4,7 @@ FROM python:3.7-alpine
 # Set working directory 
 WORKDIR /home/notebooks
 USER root
+RUN apk add --no-cache gcc musl-dev linux-headers
 
 ADD requirements_notebooks.txt /app/
 COPY ./pipelines /home/pipelines
