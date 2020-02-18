@@ -22,7 +22,7 @@ RUN /usr/bin/crontab /home/pipelines/crontab.txt
 # Installs, clean, and update
 
 RUN apt-get install -y python-pip
-RUN pip install -r /app/requirements_notebooks.txt
+RUN pip install --no-cache-dir -r /app/requirements_notebooks.txt
 
 
 # Run shell command to start CRON
