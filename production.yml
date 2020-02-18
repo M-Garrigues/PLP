@@ -52,13 +52,30 @@ services:
       - traefik.http.routers.plp_api.entrypoints=http,https
 
 
-  mongo-seed:
-    build: ./etc/mongo-seed
-    links:
-      - plp_mongodb
-    depends_on:
-      - plp_mongodb
-    restart: on-failure
+  plp_pipelines:
+    restart: always
+    build:
+      context: ./decision
+      dockerfile: Dockerfile.decision
+    container_name: plp_pipelines
+    image: im_plp_pipelines
+    volumes:
+      - ./decision/notebooks:/home/notebooks
+      - ./pipelines:/home/pipelines
+    labels:
+      - traefik.enable=false
     networks:
-      - internal
-      - proxy #temporary, need to find fix
+      - proxy
+    depends_on:
+      - plp_reverse_proxy
+      - plp_api
+  #mongo-seed:
+  #  build: ./etc/mongo-seed
+  #  links:
+  #    - plp_mongodb
+  #  depends_on:
+  #    - plp_mongodb
+  #  restart: on-failure
+  #  networks:
+  #    - internal
+  #    - proxy #temporary, need to find fix

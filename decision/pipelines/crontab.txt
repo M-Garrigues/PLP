@@ -1,0 +1,1 @@
+*/5 * * * * /home/pipelines/odds_pipeline.sh >> /var/log/odds.log

@@ -1,6 +1,10 @@
-mapboxgl
 seaborn
+mapboxgl
+lxml
 timestring
 requests
 pymongo
-lxml
+ipykernel<=5.1.1
+jupyter
+pandas
+tensorflow
