@@ -21,4 +21,4 @@ RUN pip3 install --no-cache-dir -r /app/requirements_notebooks.txt
 
 
 # Run shell command to start CRON
-#CMD ["/home/pipelines/launch_pipelines.sh"]
+CMD ["/home/pipelines/launch_pipelines.sh"]

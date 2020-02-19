@@ -2,4 +2,4 @@
 
 # start cron
 
-service crond start
+/usr/sbin/cron

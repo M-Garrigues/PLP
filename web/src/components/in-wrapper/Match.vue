@@ -70,19 +70,19 @@
         ],
         methods: {
             indicatorColor: function(indicator) {
-                if (indicator < 0.1)
+                if (indicator < 1)
                     return "#f0f0f0"
-                if (indicator < 10)
+                if (indicator < 1.5)
                     return "#3AD1CA"
-                if (indicator < 20)
+                if (indicator < 1.8)
                     return "#5BD8AF"
-                if (indicator < 30)
+                if (indicator < 2.2)
                     return "#77DE95"
-                if (indicator < 40)
+                if (indicator < 2.8)
                     return "#98E879"
-                if (indicator < 50)
+                if (indicator < 3.4)
                     return "#BEEF55"
-                if (indicator < 60)
+                if (indicator < 4)
                     return "#E2F834"
                 return "#fae614"
             },
