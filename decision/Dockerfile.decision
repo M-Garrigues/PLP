@@ -9,6 +9,10 @@ ADD requirements_notebooks.txt /app/
 COPY ./pipelines /home/pipelines
 RUN chmod -R 755 /home/pipelines
 
+# Install CRON
+RUN apt-get update
+RUN apt-get install -y cron
+
 # Set crontab file
 RUN /usr/bin/crontab /home/pipelines/crontab.txt
 
