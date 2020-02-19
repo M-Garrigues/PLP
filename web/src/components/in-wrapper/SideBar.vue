@@ -33,11 +33,11 @@
             <b-row align-h="center">
                 <b-col cols="10">
                     <div class="button-group" style="margin-top:20px">
-                    <a href="javascript:void(0);" accesskey="ligue1" class="small-button-inline" @click="flagClicked">🇫🇷</a>
-                    <a href="javascript:void(0);" accesskey="premierLeague" class="small-button-inline" @click="flagClicked">🏴󠁧󠁢󠁥󠁮󠁧󠁿</a>
-                    <a href="javascript:void(0);" accesskey="liga" class="small-button-inline" @click="flagClicked">🇪🇸</a>
-                    <a href="javascript:void(0);" accesskey="bundesliga" class="small-button-inline" @click="flagClicked">🇩🇪</a>
-                    <a href="javascript:void(0);" accesskey="serieA" class="small-button-inline" @click="flagClicked">🇮🇹</a>
+                    <a href="javascript:void(0);" accesskey="ligue1" class="small-button-inline" @click="flagClicked">FR</a>
+                    <a href="javascript:void(0);" accesskey="premierLeague" class="small-button-inline" @click="flagClicked">EN</a>
+                    <a href="javascript:void(0);" accesskey="liga" class="small-button-inline" @click="flagClicked">ES</a>
+                    <a href="javascript:void(0);" accesskey="bundesliga" class="small-button-inline" @click="flagClicked">DE</a>
+                    <a href="javascript:void(0);" accesskey="serieA" class="small-button-inline" @click="flagClicked">IT</a>
                     </div>
                 </b-col>
             </b-row>
