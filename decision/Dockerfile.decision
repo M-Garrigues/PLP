@@ -1,5 +1,5 @@
 # Set the base image
-FROM tensorflow:2.0.1-py3-jupyter
+FROM tensorflow/tensorflow:2.0.1-py3-jupyter
 
 # Set working directory 
 WORKDIR /home/notebooks
