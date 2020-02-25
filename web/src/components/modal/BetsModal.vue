@@ -67,11 +67,10 @@
                 var tot = 0;
 
                 sliced_indicators.forEach(bet => {
-                    let ecart_zero = 0.3
                     let esperance = bet.pred * (bet.odd - 1) - (1 - bet.pred) * (-1);
-                    let variance = bet.pred * (bet.odd - 1 - esperance) ** 2 + (1 - bet.pred) * (-1 - esperance) ** 2 + ecart_zero;
+                    let variance = (1 - bet.pred) * (-1 - esperance) ** 2;
 
-                    bet.credit = esperance/variance**(1 + (5-this.risk)/5);
+                    bet.credit = esperance/variance**(1-this.risk/5.0);
 
                     tot += bet.credit;
                 });
